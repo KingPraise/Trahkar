@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Roboto Flex", ui-sans-serif, system-ui, sans-serif;
+  --color-background: #f7f9fb;
+  --color-surface-variant: #e0e3e5;
+  --color-inverse-on-surface: #eff1f3;
+  --color-on-error: #ffffff;
+  --color-on-secondary-container: #57657a;
+  --color-secondary-fixed: #d5e3fc;
+  --color-on-primary-fixed: #00174b;
+  --color-surface-container: #eceef0;
+  --color-on-surface: #191c1e;
+  --color-surface-dim: #d8dadc;
+  --color-border: #E2E8F0;
+  --color-secondary: #515f74;
+  --color-tertiary-container: #636e83;
+  --color-surface-container-highest: #e0e3e5;
+  --color-surface-container-high: #e6e8ea;
+  --color-success: #16A34A;
+  --color-on-error-container: #93000a;
+  --color-on-secondary-fixed: #0d1c2e;
+  --color-on-surface-variant: #434655;
+  --color-primary-container: #2563eb;
+  --color-on-tertiary: #ffffff;
+  --color-on-primary-fixed-variant: #003ea8;
+  --color-error-container: #ffdad6;
+  --color-on-secondary-fixed-variant: #3a485b;
+  --color-on-primary: #ffffff;
+  --color-primary: #004ac6;
+  --color-surface-bright: #f7f9fb;
+  --color-secondary-container: #d5e3fc;
+  --color-inverse-primary: #b4c5ff;
+  --color-tertiary: #4b566a;
+  --color-muted: #94A3B8;
+  --color-primary-fixed: #dbe1ff;
+  --color-primary-fixed-dim: #b4c5ff;
+  --color-tertiary-fixed: #d8e3fb;
+  --color-danger: #DC2626;
+  --color-surface: #f7f9fb;
+  --color-surface-tint: #0053db;
+  --color-inverse-surface: #2d3133;
+  --color-on-primary-container: #eeefff;
+  --color-on-secondary: #ffffff;
+  --color-outline: #737686;
+  --color-on-tertiary-fixed: #111c2d;
+  --color-surface-container-low: #f2f4f6;
+  --color-error: #ba1a1a;
+  --color-on-background: #191c1e;
+  --color-on-tertiary-fixed-variant: #3c475a;
+  --color-secondary-fixed-dim: #b9c7df;
+  --color-surface-container-lowest: #ffffff;
+  --color-outline-variant: #c3c6d7;
+  --color-on-tertiary-container: #ecf1ff;
+  --color-tertiary-fixed-dim: #bcc7de;
+  --color-warning: #CA8A04;
+}
+
+/* Material Symbols Outlined Custom configurations */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+body {
+  font-family: "Roboto Flex", sans-serif;
+  background-color: #f7f9fb;
+}
+
+/* Scrollbar hiding utilities */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
