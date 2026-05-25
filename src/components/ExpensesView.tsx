@@ -294,7 +294,7 @@ export default function ExpensesView({
             </div>
 
             {/* Total items registered ledger deck */}
-            <div className="bg-surface-container-low dark:bg-zinc-900 border border-border dark:border-zinc-800 p-5 rounded-2xl flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-surface-container-low border border-border p-5 rounded-2xl flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary shrink-0">
                 <Receipt className="w-6 h-6" />
               </div>
@@ -308,18 +308,18 @@ export default function ExpensesView({
           </div>
 
           {/* Dynamic Ledger table listing recent recorded elements */}
-          <div className="bg-surface-container-lowest dark:bg-zinc-900 border border-border dark:border-zinc-800 rounded-2xl shadow-sm overflow-hidden">
-            <div className="px-5 py-4 border-b border-border dark:border-zinc-800 flex justify-between items-center bg-surface-container-low dark:bg-zinc-800">
+          <div className="bg-surface-container-lowest border border-border rounded-2xl shadow-sm overflow-hidden">
+            <div className="px-5 py-4 border-b border-border flex justify-between items-center bg-surface-container-low">
               <h4 className="font-extrabold text-xs text-on-surface uppercase tracking-wider">Recent Expense Log Lines</h4>
               <span className="text-[10px] font-black bg-primary/10 text-primary px-2 py-0.5 rounded-full">{expenses.length} items</span>
             </div>
 
-            <div className="divide-y divide-border dark:divide-zinc-800 max-h-72 overflow-y-auto">
+            <div className="divide-y divide-border max-h-72 overflow-y-auto">
               {expenses.length === 0 ? (
                 <p className="text-center py-12 text-secondary text-xs font-semibold">No recorded expenditures listed.</p>
               ) : (
                 [...expenses].reverse().map((exp) => (
-                  <div key={exp.id} className="p-4 flex items-center justify-between hover:bg-surface-container-low dark:hover:bg-zinc-800/50 transition-colors">
+                  <div key={exp.id} className="p-4 flex items-center justify-between hover:bg-surface-container-low transition-colors">
                     <div className="space-y-1 pr-4 min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap">
                         <p className="font-bold text-xs text-on-surface truncate max-w-45">{exp.name}</p>
