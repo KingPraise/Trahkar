@@ -83,7 +83,7 @@ export default function ReportsView({
                     setSelectedMonth(mon);
                     setShowMonthSelect(false);
                   }}
-                  className="w-full text-left px-4 py-2 hover:bg-surface-container text-xs text-on-surface hover:text-primary transition-colors block text-left font-semibold"
+                  className="w-full px-4 py-2 hover:bg-surface-container text-xs text-on-surface hover:text-primary transition-colors font-semibold"
                 >
                   {mon}
                 </button>
@@ -171,7 +171,7 @@ export default function ReportsView({
         </div>
 
         {/* Interactive mock SVG Bar Chart */}
-        <div className="relative h-[250px] flex items-end justify-between gap-4 md:gap-8 px-2 md:px-8 border-b border-border mb-6">
+        <div className="relative h-62.5 flex items-end justify-between gap-4 md:gap-8 px-2 md:px-8 border-b border-border mb-6">
           
           {/* Y-Axis floating guidelines */}
           <div className="absolute left-0 right-0 top-0 bottom-0 flex flex-col justify-between pointer-events-none text-[9px] text-muted border-l border-dashed border-border/40 pl-2">
@@ -187,7 +187,7 @@ export default function ReportsView({
               <p className="font-bold text-success">Rev: ₦1.0M</p>
               <p className="font-bold text-danger">Exp: ₦450K</p>
             </div>
-            <div className="flex items-end gap-1.5 w-full max-w-[64px] h-[80%] pt-6">
+            <div className="flex items-end gap-1.5 w-full max-w-16 h-[80%] pt-6">
               <div className="flex-1 bg-success hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '65%' }}></div>
               <div className="flex-1 bg-danger hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '30%' }}></div>
             </div>
@@ -200,7 +200,7 @@ export default function ReportsView({
               <p className="font-bold text-success">Rev: ₦1.25M</p>
               <p className="font-bold text-danger">Exp: ₦600K</p>
             </div>
-            <div className="flex items-end gap-1.5 w-full max-w-[64px] h-[80%] pt-6">
+            <div className="flex items-end gap-1.5 w-full max-w-16 h-[80%] pt-6">
               <div className="flex-1 bg-success hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '85%' }}></div>
               <div className="flex-1 bg-danger hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '40%' }}></div>
             </div>
@@ -213,7 +213,7 @@ export default function ReportsView({
               <p className="font-bold text-success">Rev: ₦1.1M</p>
               <p className="font-bold text-danger">Exp: ₦500K</p>
             </div>
-            <div className="flex items-end gap-1.5 w-full max-w-[64px] h-[80%] pt-6">
+            <div className="flex items-end gap-1.5 w-full max-w-16 h-[80%] pt-6">
               <div className="flex-1 bg-success hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '70%' }}></div>
               <div className="flex-1 bg-danger hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '35%' }}></div>
             </div>
@@ -226,7 +226,7 @@ export default function ReportsView({
               <p className="font-bold text-success">Rev: ₦1.35M</p>
               <p className="font-bold text-danger">Exp: ₦620K</p>
             </div>
-            <div className="flex items-end gap-1.5 w-full max-w-[64px] h-[80%] pt-6">
+            <div className="flex items-end gap-1.5 w-full max-w-16 h-[80%] pt-6">
               <div className="flex-1 bg-success hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '90%' }}></div>
               <div className="flex-1 bg-danger hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '45%' }}></div>
             </div>

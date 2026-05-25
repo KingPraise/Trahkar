@@ -80,7 +80,7 @@ export default function Layout({
           </div>
         </div>
 
-        <nav className="flex-grow py-4 space-y-1 px-2">
+        <nav className="grow py-4 space-y-1 px-2">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = currentScreen === item.id;

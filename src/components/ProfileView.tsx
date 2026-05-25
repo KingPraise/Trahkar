@@ -144,7 +144,7 @@ export default function ProfileView({
             />
           </div>
 
-          <div className="space-y-2 flex-grow">
+          <div className="space-y-2 grow">
             <h2 className="text-xl md:text-2xl font-black text-on-surface dark:text-zinc-100">
               {formSettings.pharmacistName || 'Dr. Adebayo Ogunwale'}
             </h2>
@@ -314,7 +314,7 @@ export default function ProfileView({
                     onChange={(e) => handleChange('twoFactorAuth', e.target.checked)}
                     className="sr-only peer" 
                   />
-                  <div className="w-11 h-6 bg-surface-container-high dark:bg-zinc-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-zinc-350 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                  <div className="w-11 h-6 bg-surface-container-high dark:bg-zinc-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-zinc-350 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                 </label>
               </div>
             </div>
@@ -353,7 +353,7 @@ export default function ProfileView({
                       onChange={(e) => handleChange('inventoryAlerts', e.target.checked)}
                       className="sr-only peer" 
                     />
-                    <div className="w-9 h-5 bg-surface-container-high dark:bg-zinc-800 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                    <div className="w-9 h-5 bg-surface-container-high dark:bg-zinc-800 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
                   </label>
                 </div>
 
@@ -367,7 +367,7 @@ export default function ProfileView({
                       onChange={(e) => handleChange('salesSummaries', e.target.checked)}
                       className="sr-only peer" 
                     />
-                    <div className="w-9 h-5 bg-surface-container-high dark:bg-zinc-800 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                    <div className="w-9 h-5 bg-surface-container-high dark:bg-zinc-800 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
                   </label>
                 </div>
 
@@ -381,7 +381,7 @@ export default function ProfileView({
                       onChange={(e) => handleChange('securityNotifications', e.target.checked)}
                       className="sr-only peer" 
                     />
-                    <div className="w-9 h-5 bg-surface-container-high dark:bg-zinc-800 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                    <div className="w-9 h-5 bg-surface-container-high dark:bg-zinc-800 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
                   </label>
                 </div>
 

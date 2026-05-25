@@ -234,7 +234,7 @@ export default function NotificationsView({
           {expiredDrugs.map((drug) => (
             <div 
               key={`exp-${drug.id}`}
-              className="bg-surface-container-lowest border-l-4 border-danger p-5 rounded-2xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group border border-border"
+              className="bg-surface-container-lowest border-l-4 border-danger p-5 rounded-2xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group\"
             >
               <div className="flex justify-between items-start mb-3">
                 <div className="flex flex-col">
@@ -265,7 +265,7 @@ export default function NotificationsView({
           {outOfStockDrugs.map((drug) => (
             <div 
               key={`oos-${drug.id}`}
-              className="bg-surface-container-lowest border-l-4 border-danger p-5 rounded-2xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group border border-border"
+              className="bg-surface-container-lowest border-l-4 border-danger p-5 rounded-2xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group"
             >
               <div className="flex justify-between items-start mb-3">
                 <div className="flex flex-col">
@@ -317,7 +317,7 @@ export default function NotificationsView({
           {lowStockDrugs.slice(0, 3).map((drug) => (
             <div 
               key={`low-${drug.id}`}
-              className="bg-surface-container-lowest border-t-2 border-warning p-5 rounded-2xl shadow-sm hover:shadow-md transition-all border border-border"
+              className="bg-surface-container-lowest border-t-2 border-warning p-5 rounded-2xl shadow-sm hover:shadow-md transition-all\"
             >
               <div className="flex items-start justify-between mb-2">
                 <div className="flex flex-col">
@@ -344,7 +344,7 @@ export default function NotificationsView({
           {expiringSoonDrugs.slice(0, 2).map((drug) => (
             <div 
               key={`expsoon-${drug.id}`}
-              className="bg-surface-container-lowest border-t-2 border-warning p-5 rounded-2xl shadow-sm hover:shadow-md transition-all border border-border"
+              className="bg-surface-container-lowest border-t-2 border-warning p-5 rounded-2xl shadow-sm hover:shadow-md transition-all\"
             >
               <div className="flex items-start justify-between mb-2">
                 <div className="flex flex-col">
@@ -368,7 +368,7 @@ export default function NotificationsView({
           ))}
 
           {/* Static Supplier Reminder overdue */}
-          <div className="bg-surface-container-lowest border-t-2 border-warning p-5 rounded-2xl shadow-sm hover:shadow-md transition-all border border-border">
+            <div className="bg-surface-container-lowest border-t-2 border-warning p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
             <div className="flex items-start justify-between">
               <div className="flex flex-col">
                 <span className="font-bold text-sm text-on-surface">Supplier: Emzor Pharma</span>

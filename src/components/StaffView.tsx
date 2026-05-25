@@ -263,7 +263,7 @@ export default function StaffView() {
         {/* Total Staff */}
         <div className="bg-surface-container-lowest p-5 rounded-2xl shadow-xs border border-border flex flex-col justify-between gap-3">
           <div className="flex items-center justify-between text-secondary">
-            <span className="text-xs uppercase font-black tracking-widest text-[#57657a]">Total Staff</span>
+            <span className="text-xs uppercase font-black tracking-widest text-on-secondary-container">Total Staff</span>
             <Users className="w-5 h-5 text-primary" />
           </div>
           <div>
@@ -281,7 +281,7 @@ export default function StaffView() {
         {/* Roles Breakout */}
         <div className="bg-surface-container-lowest p-5 rounded-2xl shadow-xs border border-border flex flex-col justify-between gap-3">
           <div className="flex items-center justify-between text-secondary">
-            <span className="text-xs uppercase font-black tracking-widest text-[#57657a]">Roles Breakdown</span>
+            <span className="text-xs uppercase font-black tracking-widest text-on-secondary-container">Roles Breakdown</span>
             <Award className="w-5 h-5 text-secondary" />
           </div>
           <div>
@@ -298,7 +298,7 @@ export default function StaffView() {
         {/* Attendance Rates */}
         <div className="bg-surface-container-lowest p-5 rounded-2xl shadow-xs border border-border flex flex-col justify-between gap-3">
           <div className="flex items-center justify-between text-secondary">
-            <span className="text-xs uppercase font-black tracking-widest text-[#57657a]">Today's attendance</span>
+            <span className="text-xs uppercase font-black tracking-widest text-on-secondary-container">Today's attendance</span>
             <CheckCircle className="w-5 h-5 text-success" />
           </div>
           <div>
@@ -366,7 +366,7 @@ export default function StaffView() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-surface-container-low/50 text-[#57657a] border-b border-border">
+                <tr className="bg-surface-container-low/50 text-on-secondary-container border-b border-border">
                   <th className="px-6 py-4 font-black text-xs uppercase tracking-wider">Name &amp; Role</th>
                   <th className="px-6 py-4 font-black text-xs uppercase tracking-wider">Contact Information</th>
                   <th className="px-6 py-4 font-black text-xs uppercase tracking-wider">Status</th>
@@ -384,7 +384,7 @@ export default function StaffView() {
                         <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${
                           member.role === 'Admin' 
                             ? 'bg-primary/10 text-primary border border-primary/20' 
-                            : 'bg-[#bcc7de] text-[#111c2d]'
+                            : 'bg-tertiary-fixed-dim text-on-tertiary-fixed'
                         }`}>
                           {member.initials}
                         </div>
@@ -393,7 +393,7 @@ export default function StaffView() {
                           <span className={`inline-block px-2.5 py-0.5 mt-1 text-[10px] font-black rounded-lg uppercase tracking-wider ${
                             member.role === 'Admin' 
                               ? 'bg-primary-container text-on-primary-container' 
-                              : 'bg-surface-container-highest text-[#434655]'
+                              : 'bg-surface-container-highest text-on-surface-variant'
                           }`}>
                             {member.role}
                           </span>
@@ -414,7 +414,7 @@ export default function StaffView() {
                       <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black select-none ${
                         member.status === 'Active' 
                           ? 'bg-success/15 text-success' 
-                          : 'bg-surface-container-highest text-[#434655]'
+                          : 'bg-surface-container-highest text-on-surface-variant'
                       }`}>
                         <span className={`w-1.5 h-1.5 rounded-full ${
                           member.status === 'Active' ? 'bg-success animate-pulse' : 'bg-secondary'
@@ -445,7 +445,7 @@ export default function StaffView() {
                         {/* Edit profile */}
                         <button 
                           onClick={() => openEditModal(member)}
-                          className="p-2 text-[#4b566a] hover:bg-surface-container-high rounded-xl transition-colors cursor-pointer"
+                          className="p-2 text-tertiary hover:bg-surface-container-high rounded-xl transition-colors cursor-pointer"
                           title="Edit Profile"
                         >
                           <Edit2 className="w-4 h-4" />
@@ -750,7 +750,7 @@ export default function StaffView() {
                 <div className="border border-border p-4 rounded-xl space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-secondary font-black uppercase tracking-wider">Satisfaction Index</span>
-                    <Award className="w-4 h-4 text-[#CA8A04]" />
+                    <Award className="w-4 h-4 text-warning" />
                   </div>
                   <div className="text-lg font-black text-on-surface">
                     {getPerfDetails(selectedStaff.id).rating} / 5.0

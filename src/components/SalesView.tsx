@@ -158,7 +158,7 @@ export default function SalesView({
         >
           <span>New Sale</span>
           {activeTab === 'new-sale' && (
-            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-primary rounded-t-full"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-0.75 bg-primary rounded-t-full"></div>
           )}
         </button>
 
@@ -172,7 +172,7 @@ export default function SalesView({
         >
           <span>Sales History</span>
           {activeTab === 'sales-history' && (
-            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-primary rounded-t-full"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-0.75 bg-primary rounded-t-full"></div>
           )}
         </button>
       </div>
@@ -286,7 +286,7 @@ export default function SalesView({
               {/* Payment Methods */}
               <div>
                 <label className="block text-xs font-semibold text-secondary uppercase tracking-wider mb-2">Payment Method</label>
-                <div className="flex gap-3 grid grid-cols-3">
+                <div className="grid grid-cols-3 gap-3">
                   
                   <button 
                     type="button"

@@ -147,7 +147,7 @@ export default function ExpensesView({
         {/* Left Hand: Record Expense Form Sheet */}
         <div className="lg:col-span-7 bg-surface-container-lowest dark:bg-zinc-900 border border-border dark:border-zinc-800 rounded-2xl shadow-lg p-6 md:p-8">
           <div className="mb-6">
-            <h3 className="text-xl font-headline-page text-on-surface font-extrabold flex items-center gap-2 text-primary">
+            <h3 className="text-xl font-headline-page font-extrabold flex items-center gap-2 text-primary">
               <PlusCircle className="w-6 h-6 text-primary" />
               <span>Log New Expenditure</span>
             </h3>
@@ -322,7 +322,7 @@ export default function ExpensesView({
                   <div key={exp.id} className="p-4 flex items-center justify-between hover:bg-surface-container-low dark:hover:bg-zinc-800/50 transition-colors">
                     <div className="space-y-1 pr-4 min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap">
-                        <p className="font-bold text-xs text-on-surface truncate max-w-[180px]">{exp.name}</p>
+                        <p className="font-bold text-xs text-on-surface truncate max-w-45">{exp.name}</p>
                         {exp.category && (
                           <span className="text-[8px] font-black bg-secondary/15 text-secondary px-1.5 py-0.5 rounded-md uppercase tracking-wide">
                             {exp.category}
@@ -331,7 +331,7 @@ export default function ExpensesView({
                       </div>
                       <div className="flex items-center gap-3 text-[10px] text-muted">
                         <span>{exp.date || 'May 25, 2026'}</span>
-                        {exp.notes && <span className="truncate max-w-[120px]" title={exp.notes}>• {exp.notes}</span>}
+                        {exp.notes && <span className="truncate max-w-30" title={exp.notes}>• {exp.notes}</span>}
                       </div>
                     </div>
 

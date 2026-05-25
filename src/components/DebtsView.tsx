@@ -138,7 +138,7 @@ export default function DebtsView({
         >
           <span>Outstanding</span>
           {activeTab === 'outstanding' && (
-            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-primary rounded-t-full"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-0.75 bg-primary rounded-t-full"></div>
           )}
         </button>
 
@@ -152,7 +152,7 @@ export default function DebtsView({
         >
           <span>Paid ({paidDebts.length})</span>
           {activeTab === 'paid' && (
-            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-primary rounded-t-full"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-0.75 bg-primary rounded-t-full"></div>
           )}
         </button>
       </div>
@@ -377,7 +377,7 @@ export default function DebtsView({
       {showAddModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-surface-container-lowest rounded-2xl shadow-xl max-w-md w-full border border-border overflow-hidden">
-            <div className="px-6 py-4 border-b border-border flex justify-between items-center bg-gradient-to-r from-warning/5 to-transparent">
+            <div className="px-6 py-4 border-b border-border flex justify-between items-center bg-linear-to-r from-warning/5 to-transparent">
               <h3 className="font-bold text-lg text-warning flex items-center gap-1.5 animate-pulse">
                 <AlertTriangle className="w-5 h-5 text-warning animate-bounce" />
                 Record Credit Account

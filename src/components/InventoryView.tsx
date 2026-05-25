@@ -186,7 +186,7 @@ export default function InventoryView({
               }`}
             >
               <span>{chip}</span>
-              <span className={`px-1.5 py-0.25 text-[10px] rounded-full ${
+              <span className={`px-1.5 py-px text-[10px] rounded-full ${
                 isActive ? 'bg-white/20 text-white' : 'bg-black/5 text-secondary'
               }`}>{count}</span>
             </button>
@@ -280,7 +280,7 @@ export default function InventoryView({
       {showAddModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-surface-container-lowest rounded-2xl shadow-xl max-w-lg w-full border border-border overflow-hidden">
-            <div className="px-6 py-4 border-b border-border flex justify-between items-center bg-gradient-to-r from-primary/5 to-transparent">
+            <div className="px-6 py-4 border-b border-border flex justify-between items-center bg-linear-to-r from-primary/5 to-transparent">
               <h3 className="font-bold text-lg text-primary flex items-center gap-2">
                 <PlusCircle className="w-5 h-5 font-bold text-primary" />
                 Add New Drug Line
@@ -395,7 +395,7 @@ export default function InventoryView({
       {restockItem && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-surface-container-lowest rounded-2xl shadow-xl max-w-md w-full border border-border overflow-hidden">
-            <div className="px-6 py-4 border-b border-border flex justify-between items-center bg-gradient-to-r from-success/5 to-transparent">
+            <div className="px-6 py-4 border-b border-border flex justify-between items-center bg-linear-to-r from-success/5 to-transparent">
               <div>
                 <h3 className="font-bold text-lg text-primary">Restock Stock Item</h3>
                 <p className="text-xs text-secondary">{restockItem.name}</p>
