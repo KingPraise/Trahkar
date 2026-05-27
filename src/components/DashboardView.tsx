@@ -295,7 +295,7 @@ export default function DashboardView({
 
       {/* FOOTER */}
       <footer className="pt-8 border-t border-border/70 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-secondary">
-        <p>© 2026 Favour Pharmacy & Stores. All rights reserved.</p>
+        <p>© 2026 Trahka Pharmacy &amp; Stores. All rights reserved.</p>
         <div className="flex gap-6">
           <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
           <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>

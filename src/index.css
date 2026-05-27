@@ -56,6 +56,10 @@
   --color-warning: #CA8A04;
   --color-trahka-navy: #0A1628;
   --color-trahka-amber: #F59E0B;
+
+  /* Custom spacing scale tokens for layout margins */
+  --spacing-margin-mobile: 1.25rem;
+  --spacing-margin-desktop: 2.5rem;
 }
 
 /* Landing Page Custom Interactions & Animations */

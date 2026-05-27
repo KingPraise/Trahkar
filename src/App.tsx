@@ -63,7 +63,7 @@ export default function App() {
 
   const [settings, setSettings] = React.useState<AppSettings>(() => {
     const defaultSettings: AppSettings = {
-      pharmacyName: 'Favour Pharmacy & Stores',
+      pharmacyName: 'Trahka Pharmacy & Stores',
       adminSlogan: 'Admin Console',
       adminUsername: 'kingpraise15',
       lowStockThreshold: 20,
@@ -449,7 +449,7 @@ export default function App() {
     setActivities(INITIAL_ACTIVITIES);
     setExpenses(INITIAL_EXPENSES);
     setSettings({
-      pharmacyName: 'Favour Pharmacy',
+      pharmacyName: 'Trahka Pharmacy',
       adminSlogan: 'Admin Console',
       adminUsername: 'kingpraise15',
       lowStockThreshold: 20,

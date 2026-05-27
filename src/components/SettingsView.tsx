@@ -171,7 +171,7 @@ export default function SettingsView({
         } catch (err) {
           setImportStatus({
             type: 'error',
-            text: 'Parsing error. Ensure you uploaded a valid Favour Pharmacy JSON file.'
+            text: 'Parsing error. Ensure you uploaded a valid Trahka JSON file.'
           });
         }
       };
