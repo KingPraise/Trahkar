@@ -19,6 +19,9 @@ import ClearCacheView from './components/ClearCacheView';
 import NotificationsView from './components/NotificationsView';
 import ProfileView from './components/ProfileView';
 import StaffView from './components/StaffView';
+import LandingView from './components/LandingView';
+import SignupView from './components/SignupView';
+import SignupSuccessView from './components/SignupSuccessView';
 
 // Local storage keys
 const KEY_DRUGS = 'favour_drugs_4';
@@ -29,7 +32,7 @@ const KEY_EXPS = 'favour_expenses_4';
 const KEY_SETTINGS = 'favour_settings_4';
 
 export default function App() {
-  const [currentScreen, setScreen] = React.useState<Screen>('dashboard');
+  const [currentScreen, setScreen] = React.useState<Screen>('landing');
   const [searchQuery, setSearchQuery] = React.useState('');
 
   // Loaded states with localStorage synchronization fallbacks
@@ -505,6 +508,47 @@ export default function App() {
         onClearAllData={handleResetDatabase}
         onCancel={() => setScreen('settings')}
         settings={settings}
+      />
+    );
+  }
+
+  if (currentScreen === 'landing') {
+    return (
+      <LandingView 
+        onEnterApp={() => setScreen('dashboard')} 
+        onSignupClick={() => setScreen('signup')} 
+      />
+    );
+  }
+
+  if (currentScreen === 'signup') {
+    return (
+      <SignupView 
+        onSignupSuccess={(data) => {
+          setSettings(prev => {
+            const updated = {
+              ...prev,
+              pharmacyName: data.businessName,
+              pharmacistName: data.fullName,
+              emailAddress: data.emailAddress,
+            };
+            // Also store to localStorage so other hooks sync immediately
+            localStorage.setItem(KEY_SETTINGS, JSON.stringify(updated));
+            return updated;
+          });
+          setScreen('signupsuccess');
+        }} 
+        onNavigateToLogin={() => setScreen('dashboard')} 
+        onBackToLanding={() => setScreen('landing')} 
+      />
+    );
+  }
+
+  if (currentScreen === 'signupsuccess') {
+    return (
+      <SignupSuccessView 
+        businessName={settings.pharmacyName}
+        onNavigate={(target) => setScreen(target)}
       />
     );
   }

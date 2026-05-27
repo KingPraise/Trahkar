@@ -132,16 +132,23 @@ export default function Layout({
               <span>Settings</span>
             </button>
             <button 
+              onClick={() => setScreen('landing')}
+              className="w-full flex items-center gap-3 px-4 py-2 text-red-600 hover:bg-red-50 hover:text-red-700 dark:hover:bg-red-950/20 rounded-xl text-left text-sm cursor-pointer transition-all font-semibold"
+            >
+              <LogOut className="w-4 h-4 text-red-600 group-hover:text-red-700" />
+              <span>Log Out</span>
+            </button>
+            <button 
               onClick={() => {
                 if (confirm('Are you sure you want to reset all tracking state to factory defaults?')) {
                   localStorage.clear();
                   window.location.reload();
                 }
               }}
-              className="w-full flex items-center gap-3 px-4 py-2 text-danger hover:bg-error-container/20 rounded-xl text-left text-sm"
+              className="w-full flex items-center gap-3 px-4 py-2 text-danger hover:bg-error-container/20 rounded-xl text-left text-sm mt-1"
             >
-              <LogOut className="w-4 h-4" />
-              <span>Reset State</span>
+              <AlertTriangle className="w-4 h-4 text-danger animate-pulse" />
+              <span>Reset All State</span>
             </button>
           </div>
         </div>
@@ -261,6 +268,27 @@ export default function Layout({
                 </button>
               );
             })}
+            <div className="h-px bg-border my-2"></div>
+            <button
+              onClick={() => {
+                setScreen('settings');
+                setMobileMenuOpen(false);
+              }}
+              className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-left text-secondary hover:bg-surface-container-low transition-all"
+            >
+              <Settings className="w-5 h-5" />
+              <span className="text-body-md font-medium">Settings Console</span>
+            </button>
+            <button
+              onClick={() => {
+                setScreen('landing');
+                setMobileMenuOpen(false);
+              }}
+              className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-left text-red-600 hover:bg-red-50 hover:text-red-700 transition-all font-semibold"
+            >
+              <LogOut className="w-5 h-5 text-red-600" />
+              <span className="text-body-md">Log Out</span>
+            </button>
           </div>
         )}
 

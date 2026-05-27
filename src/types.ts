@@ -1,4 +1,4 @@
-export type Screen = 'dashboard' | 'inventory' | 'sales' | 'reports' | 'debts' | 'settings' | 'expenses' | 'clearcache' | 'notifications' | 'profile' | 'staff';
+export type Screen = 'landing' | 'signup' | 'signupsuccess' | 'dashboard' | 'inventory' | 'sales' | 'reports' | 'debts' | 'settings' | 'expenses' | 'clearcache' | 'notifications' | 'profile' | 'staff';
 
 export interface StaffMember {
   id: string;

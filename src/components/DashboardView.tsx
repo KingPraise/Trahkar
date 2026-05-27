@@ -13,7 +13,8 @@ import {
   Activity,
   X,
   PlusCircle,
-  TrendingDown
+  TrendingDown,
+  LogOut
 } from 'lucide-react';
 import { ActivityLine, DrugItem, Screen } from '../types';
 
@@ -102,6 +103,23 @@ export default function DashboardView({
   return (
     <div className="space-y-8 animate-fade-in">
       
+      {/* Welcome Banner with Log Out */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white dark:bg-zinc-900 px-6 py-5 rounded-2xl border border-slate-200 shadow-xs">
+        <div>
+          <h1 className="text-xl md:text-2xl font-extrabold text-[#191c1e] dark:text-white flex items-center gap-2">
+            <span>Pharmacy Control Panel</span>
+          </h1>
+          <p className="text-xs text-slate-500 font-medium mt-1">Real-time stats tracking for your medical inventory and transactions ledger.</p>
+        </div>
+        <button
+          onClick={() => onNavigate('landing')}
+          className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 bg-red-50 text-red-600 hover:bg-red-100 hover:text-red-700 rounded-xl text-xs font-extrabold transition-all border border-red-200/60 shadow-xs active:scale-95 cursor-pointer"
+        >
+          <LogOut className="w-4 h-4 text-red-600" />
+          <span>Log Out to Homepage</span>
+        </button>
+      </div>
+
       {/* Metric summary grid */}
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         
