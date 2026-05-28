@@ -59,7 +59,16 @@ export default function Layout({
       
       {/* SideNavBar (Desktop) */}
       <aside className="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface-container-low border-r border-border dark:border-outline-variant shadow-md z-40">
-        <div className="p-6 flex flex-col gap-1 border-b border-border/50">
+        <div className="p-6 flex flex-col gap-3 border-b border-border/50">
+          {/* Logo Section */}
+          <div className="flex justify-center mb-2">
+            <img 
+              src="/logo.png" 
+              alt="Pharmacy Logo" 
+              className="h-16 w-auto object-contain drop-shadow-md" 
+            />
+          </div>
+          
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center bg-surface-container-high shrink-0 border border-primary/10">
               {settings.logoUrl ? (
@@ -166,6 +175,13 @@ export default function Layout({
             >
               <Menu className="w-6 h-6" />
             </button>
+
+            {/* Logo for mobile */}
+            <img 
+              src="/logo.png" 
+              alt="Pharmacy Logo" 
+              className="md:hidden h-8 w-auto object-contain" 
+            />
             
             <h2 className="font-bold text-lg text-primary md:text-xl capitalize">
               {currentScreen === 'dashboard' ? 'Dashboard' : currentScreen === 'profile' ? 'Profile & Account' : currentScreen === 'reports' ? 'P&L Reports' : currentScreen === 'settings' ? 'System Settings' : currentScreen === 'expenses' ? 'Record Expense' : currentScreen === 'notifications' ? 'Notifications' : `${currentScreen} Tracker`}
@@ -296,6 +312,19 @@ export default function Layout({
         <main className="flex-1 p-5 sm:p-6 md:p-8 max-w-7xl w-full mx-auto pb-24 md:pb-8">
           {children}
         </main>
+
+        {/* Footer */}
+        <footer className="hidden md:flex items-center justify-center gap-4 px-8 py-6 bg-surface-container-lowest border-t border-border/50 text-center">
+          <img 
+            src="/logo.png" 
+            alt="Pharmacy Logo" 
+            className="h-8 w-auto object-contain" 
+          />
+          <div className="flex flex-col items-start">
+            <p className="text-xs text-secondary">© 2024 {settings.pharmacyName || 'Favour Pharmacy'}</p>
+            <p className="text-xs text-muted">Professional Pharmacy Management System</p>
+          </div>
+        </footer>
 
         {/* BottomNavBar (Mobile) */}
         <nav className="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest border-t border-border flex items-center justify-around z-50">
