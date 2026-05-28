@@ -206,9 +206,9 @@ export default function LandingView({
               className="transition-opacity duration-200 hover:opacity-80"
             >
               <img 
-                src="/logo.png" 
+                src={navScrolled ? "/logo.png" : "/logo1.png"} 
                 alt="Trahka Logo" 
-                className="h-14 w-auto object-contain"
+                className="h-20 w-auto object-contain"
               />
             </a>
             <span className="text-[10px] text-muted md:hidden mt-1">
@@ -1341,7 +1341,7 @@ export default function LandingView({
         <div className="container mx-auto px-6 md:px-12 xl:px-8 max-w-7xl flex flex-col md:flex-row justify-between gap-12 w-full">
           <div className="max-w-xs text-left">
             <img 
-              src="/logo.png" 
+              src="/logo1.png" 
               alt="Trahka Logo" 
               className="h-20 w-auto object-contain mb-4"
             />
