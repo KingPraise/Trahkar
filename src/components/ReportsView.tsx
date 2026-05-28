@@ -13,6 +13,16 @@ import {
   PieChart,
   ArrowRight
 } from 'lucide-react';
+import {
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
+} from 'recharts';
 import { ExpenseItem, Screen } from '../types';
 
 interface ReportsViewProps {
@@ -35,6 +45,42 @@ export default function ReportsView({
 }: ReportsViewProps) {
   const [selectedMonth, setSelectedMonth] = React.useState('May 2026');
   const [showMonthSelect, setShowMonthSelect] = React.useState(false);
+
+  // Compute weekly revenue and expenses based on current month's totals
+  const chartData = React.useMemo(() => {
+    return [
+      {
+        name: 'Week 1',
+        Revenue: Math.round(totalRevenue * 0.25),
+        Expenses: Math.round(totalExpenses * 0.25),
+      },
+      {
+        name: 'Week 2',
+        Revenue: Math.round(totalRevenue * 0.30),
+        Expenses: Math.round(totalExpenses * 0.32),
+      },
+      {
+        name: 'Week 3',
+        Revenue: Math.round(totalRevenue * 0.20),
+        Expenses: Math.round(totalExpenses * 0.18),
+      },
+      {
+        name: 'Week 4',
+        Revenue: Math.round(totalRevenue * 0.25),
+        Expenses: Math.round(totalExpenses * 0.25),
+      },
+    ];
+  }, [totalRevenue, totalExpenses]);
+
+  const formatYAxis = (value: number) => {
+    if (value >= 1000000) {
+      return `₦${(value / 1000000).toFixed(1)}M`;
+    }
+    if (value >= 1000) {
+      return `₦${(value / 1000).toFixed(0)}K`;
+    }
+    return `₦${value}`;
+  };
 
   // Hardcoded Top Selling list (which are dynamically computed or loaded)
   const topSellingDrugs = [
@@ -153,86 +199,93 @@ export default function ReportsView({
 
       {/* Main Chart Section */}
       <div className="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-border">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
           <div>
             <h2 className="font-bold text-base md:text-lg text-on-surface">Weekly Revenue vs. Expenses</h2>
-            <p className="text-xs text-secondary mt-0.5">Comparison of financial performance across weeks of {selectedMonth}</p>
+            <p className="text-xs text-secondary mt-0.5">Line-chart analysis comparing weekly billing trends of {selectedMonth}</p>
           </div>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 font-semibold text-xs text-secondary">
-              <div className="w-3.5 h-3.5 rounded-md bg-success shadow-sm"></div>
+              <div className="w-3.5 h-1.5 rounded-full bg-success shadow-sm"></div>
               <span>Revenue</span>
             </div>
             <div className="flex items-center gap-2 font-semibold text-xs text-secondary">
-              <div className="w-3.5 h-3.5 rounded-md bg-danger shadow-sm"></div>
+              <div className="w-3.5 h-1.5 rounded-full bg-danger shadow-sm"></div>
               <span>Expenses</span>
             </div>
           </div>
         </div>
 
-        {/* Interactive mock SVG Bar Chart */}
-        <div className="relative h-62.5 flex items-end justify-between gap-4 md:gap-8 px-2 md:px-8 border-b border-border mb-6">
-          
-          {/* Y-Axis floating guidelines */}
-          <div className="absolute left-0 right-0 top-0 bottom-0 flex flex-col justify-between pointer-events-none text-[9px] text-muted border-l border-dashed border-border/40 pl-2">
-            <div className="border-t border-dashed border-border/30 w-full pt-1">1.5M (₦1,500,000)</div>
-            <div className="border-t border-dashed border-border/30 w-full pt-1">1.0M (₦1,000,000)</div>
-            <div className="border-t border-dashed border-border/30 w-full pt-1">500K (₦500,000)</div>
-            <div className="pt-1">0</div>
-          </div>
-
-          {/* Week 1 */}
-          <div className="flex-1 flex flex-col items-center gap-2 h-full justify-end z-10 group cursor-pointer relative">
-            <div className="absolute -top-12 bg-on-surface text-surface-container-lowest rounded-lg p-2 text-[10px] shadow-lg border border-border/40 opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-20 pointer-events-none text-center">
-              <p className="font-bold text-success">Rev: ₦1.0M</p>
-              <p className="font-bold text-danger">Exp: ₦450K</p>
-            </div>
-            <div className="flex items-end gap-1.5 w-full max-w-16 h-[80%] pt-6">
-              <div className="flex-1 bg-success hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '65%' }}></div>
-              <div className="flex-1 bg-danger hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '30%' }}></div>
-            </div>
-            <span className="text-[10px] md:text-xs text-secondary font-bold">Week 1</span>
-          </div>
-
-          {/* Week 2 */}
-          <div className="flex-1 flex flex-col items-center gap-2 h-full justify-end z-10 group cursor-pointer relative">
-            <div className="absolute -top-12 bg-on-surface text-surface-container-lowest rounded-lg p-2 text-[10px] shadow-lg border border-border/40 opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-20 pointer-events-none text-center">
-              <p className="font-bold text-success">Rev: ₦1.25M</p>
-              <p className="font-bold text-danger">Exp: ₦600K</p>
-            </div>
-            <div className="flex items-end gap-1.5 w-full max-w-16 h-[80%] pt-6">
-              <div className="flex-1 bg-success hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '85%' }}></div>
-              <div className="flex-1 bg-danger hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '40%' }}></div>
-            </div>
-            <span className="text-[10px] md:text-xs text-secondary font-bold">Week 2</span>
-          </div>
-
-          {/* Week 3 */}
-          <div className="flex-1 flex flex-col items-center gap-2 h-full justify-end z-10 group cursor-pointer relative">
-            <div className="absolute -top-12 bg-on-surface text-surface-container-lowest rounded-lg p-2 text-[10px] shadow-lg border border-border/40 opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-20 pointer-events-none text-center">
-              <p className="font-bold text-success">Rev: ₦1.1M</p>
-              <p className="font-bold text-danger">Exp: ₦500K</p>
-            </div>
-            <div className="flex items-end gap-1.5 w-full max-w-16 h-[80%] pt-6">
-              <div className="flex-1 bg-success hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '70%' }}></div>
-              <div className="flex-1 bg-danger hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '35%' }}></div>
-            </div>
-            <span className="text-[10px] md:text-xs text-secondary font-bold">Week 3</span>
-          </div>
-
-          {/* Week 4 */}
-          <div className="flex-1 flex flex-col items-center gap-2 h-full justify-end z-10 group cursor-pointer relative">
-            <div className="absolute -top-12 bg-on-surface text-surface-container-lowest rounded-lg p-2 text-[10px] shadow-lg border border-border/40 opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-20 pointer-events-none text-center">
-              <p className="font-bold text-success">Rev: ₦1.35M</p>
-              <p className="font-bold text-danger">Exp: ₦620K</p>
-            </div>
-            <div className="flex items-end gap-1.5 w-full max-w-16 h-[80%] pt-6">
-              <div className="flex-1 bg-success hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '90%' }}></div>
-              <div className="flex-1 bg-danger hover:brightness-110 rounded-t-md transition-all duration-300" style={{ height: '45%' }}></div>
-            </div>
-            <span className="text-[10px] md:text-xs text-secondary font-bold">Week 4</span>
-          </div>
-
+        {/* Dynamic Recharts Line Chart */}
+        <div className="h-72 w-full mt-2">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart
+              data={chartData}
+              margin={{ top: 20, right: 10, left: -10, bottom: 5 }}
+            >
+              <defs>
+                <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.1}/>
+                  <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+                </linearGradient>
+                <linearGradient id="colorExpenses" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#ef4444" stopOpacity={0.1}/>
+                  <stop offset="95%" stopColor="#ef4444" stopOpacity={0}/>
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" opacity={0.6} />
+              <XAxis 
+                dataKey="name" 
+                axisLine={false}
+                tickLine={false}
+                tick={{ fill: '#71717a', fontSize: 11, fontWeight: 600 }}
+              />
+              <YAxis 
+                tickFormatter={formatYAxis}
+                axisLine={false}
+                tickLine={false}
+                tick={{ fill: '#71717a', fontSize: 11, fontWeight: 600 }}
+              />
+              <Tooltip 
+                content={({ active, payload, label }) => {
+                  if (active && payload && payload.length) {
+                    return (
+                      <div className="bg-slate-900 border border-slate-800 p-3 rounded-xl shadow-xl text-xs leading-5">
+                        <p className="font-bold text-slate-100 mb-1">{label}</p>
+                        <p className="text-success font-semibold flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-success"></span>
+                          <span>Revenue: <strong className="text-white">₦{payload[0].value?.toLocaleString()}</strong></span>
+                        </p>
+                        {payload[1] && (
+                          <p className="text-danger font-semibold flex items-center gap-1.5">
+                            <span className="w-2 h-2 rounded-full bg-danger"></span>
+                            <span>Expenses: <strong className="text-white">₦{payload[1].value?.toLocaleString()}</strong></span>
+                          </p>
+                        )}
+                      </div>
+                    );
+                  }
+                  return null;
+                }}
+              />
+              <Line 
+                type="monotone" 
+                dataKey="Revenue" 
+                stroke="#10b981" 
+                strokeWidth={3}
+                dot={{ r: 5, strokeWidth: 2, stroke: "#10b981", fill: "#ffffff" }}
+                activeDot={{ r: 7, strokeWidth: 0, fill: "#10b981" }}
+              />
+              <Line 
+                type="monotone" 
+                dataKey="Expenses" 
+                stroke="#ef4444" 
+                strokeWidth={3}
+                dot={{ r: 5, strokeWidth: 2, stroke: "#ef4444", fill: "#ffffff" }}
+                activeDot={{ r: 7, strokeWidth: 0, fill: "#ef4444" }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
         </div>
       </div>
 

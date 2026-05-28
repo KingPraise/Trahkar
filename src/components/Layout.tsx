@@ -168,7 +168,7 @@ export default function Layout({
             </button>
             
             <h2 className="font-bold text-lg text-primary md:text-xl capitalize">
-              {currentScreen === 'reports' ? 'P&L Reports' : currentScreen === 'settings' ? 'System Settings' : currentScreen === 'expenses' ? 'Record Expense' : currentScreen === 'notifications' ? 'Notifications' : `${currentScreen} Tracker`}
+              {currentScreen === 'dashboard' ? 'Dashboard' : currentScreen === 'profile' ? 'Profile & Account' : currentScreen === 'reports' ? 'P&L Reports' : currentScreen === 'settings' ? 'System Settings' : currentScreen === 'expenses' ? 'Record Expense' : currentScreen === 'notifications' ? 'Notifications' : `${currentScreen} Tracker`}
             </h2>
           </div>
 

@@ -57,9 +57,9 @@ export default function SignupView({ onSignupSuccess, onNavigateToLogin, onBackT
     setSuccessMsg('Connecting Google Account...');
     setTimeout(() => {
       onSignupSuccess({
-        fullName: 'Chidi Okafor (Google Dev)',
-        businessName: 'Okafor Pharmacy',
-        emailAddress: 'chidi.o@okaforpharmacy.com.ng',
+        fullName: 'Chidi Okafor',
+        businessName: 'MedicLabs Pharmacy',
+        emailAddress: 'chidi.o@medicarepharmacy.com.ng',
       });
     }, 1000);
   };
@@ -293,7 +293,7 @@ export default function SignupView({ onSignupSuccess, onNavigateToLogin, onBackT
             <div className="relative z-10 mt-12">
               <div className="p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-xs shadow-xl">
                 <p className="italic text-sm text-slate-200 mb-4 leading-relaxed">
-                  "Trahka transformed how we track our inventory. We reduced stockouts by 40% in just three months."
+                  "Before Trahka, I couldn't tell you how much profit I made in a month. Now I check my dashboard every morning and I know exactly how my business is performing. Trahka transformed how we track our inventory. We reduced stockouts by 40% in just three months."
                 </p>
                 <div className="flex items-center gap-3">
                   <img 
@@ -304,7 +304,7 @@ export default function SignupView({ onSignupSuccess, onNavigateToLogin, onBackT
                   />
                   <div>
                     <p className="text-xs font-bold text-white">Chidi Okafor</p>
-                    <p className="text-[11px] text-[#b4c5ff]">Okafor Pharmacy, Lagos</p>
+                    <p className="text-[11px] text-[#b4c5ff]">MedicLabs Pharmacy, Lagos</p>
                   </div>
                 </div>
               </div>

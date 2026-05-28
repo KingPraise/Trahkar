@@ -107,9 +107,9 @@ export default function DashboardView({
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white dark:bg-zinc-900 px-6 py-5 rounded-2xl border border-slate-200 shadow-xs">
         <div>
           <h1 className="text-xl md:text-2xl font-extrabold text-[#191c1e] dark:text-white flex items-center gap-2">
-            <span>Pharmacy Control Panel</span>
+            <span>Business Control Panel</span>
           </h1>
-          <p className="text-xs text-slate-500 font-medium mt-1">Real-time stats tracking for your medical inventory and transactions ledger.</p>
+          <p className="text-xs text-slate-500 font-medium mt-1">Real-time tracking of your sales, stock, debts, revenue and profit.</p>
         </div>
         <button
           onClick={() => onNavigate('landing')}

@@ -36,27 +36,41 @@ export default function DebtsView({
   // Tabs: 'outstanding' | 'paid'
   const [activeTab, setActiveTab] = React.useState<'outstanding' | 'paid'>('outstanding');
   
+  // Age filter: 'all' | 'over30' | '15-30' | '0-14'
+  const [ageFilter, setAgeFilter] = React.useState<string>('all');
+  
   // Modals state
   const [showAddModal, setShowAddModal] = React.useState(false);
   const [reminderDebt, setReminderDebt] = React.useState<DebtRecord | null>(null);
+  const [confirmPaidDebt, setConfirmPaidDebt] = React.useState<DebtRecord | null>(null);
 
   // Form states
   const [customerName, setCustomerName] = React.useState('');
   const [customerPhone, setCustomerPhone] = React.useState('');
   const [amountOwed, setAmountOwed] = React.useState('');
 
-  const outstandingDebts = debts.filter((d) => d.status === 'Outstanding');
+  const allOutstandingDebts = debts.filter((d) => d.status === 'Outstanding');
+  
+  // Filtered outstanding debts based on selected age category
+  const outstandingDebts = allOutstandingDebts.filter((d) => {
+    if (ageFilter === 'all') return true;
+    if (ageFilter === 'over30') return d.daysOutstanding > 30;
+    if (ageFilter === '15-30') return d.daysOutstanding >= 15 && d.daysOutstanding <= 30;
+    if (ageFilter === '0-14') return d.daysOutstanding < 15;
+    return true;
+  });
+
   const paidDebts = debts.filter((d) => d.status === 'Paid');
 
-  const totalOutstanding = outstandingDebts.reduce((sum, d) => sum + d.amountOwed, 0);
+  const totalOutstanding = allOutstandingDebts.reduce((sum, d) => sum + d.amountOwed, 0);
 
-  // Aging segments (computed dynamically)
+  // Aging segments (computed dynamically over all outstanding debts)
   const segments = React.useMemo(() => {
     let over30 = 0;
     let mid = 0;
     let young = 0;
 
-    outstandingDebts.forEach((d) => {
+    allOutstandingDebts.forEach((d) => {
       if (d.daysOutstanding > 30) over30 += d.amountOwed;
       else if (d.daysOutstanding >= 15) mid += d.amountOwed;
       else young += d.amountOwed;
@@ -68,7 +82,7 @@ export default function DebtsView({
       mid: { amount: mid, pct: Math.round((mid / total) * 100) },
       young: { amount: young, pct: Math.round((young / total) * 100) },
     };
-  }, [outstandingDebts]);
+  }, [allOutstandingDebts]);
 
   const handleCreateDebt = (e: React.FormEvent) => {
     e.preventDefault();
@@ -127,34 +141,52 @@ export default function DebtsView({
       </section>
 
       {/* Tabs Row outstanding vs paid */}
-      <div className="flex border-b border-border">
-        <button 
-          onClick={() => setActiveTab('outstanding')}
-          className={`relative px-8 py-3.5 text-headline-card font-bold text-sm transition-all ${
-            activeTab === 'outstanding'
-              ? 'text-primary'
-              : 'text-secondary opacity-70 hover:opacity-100 hover:text-primary'
-          }`}
-        >
-          <span>Outstanding</span>
-          {activeTab === 'outstanding' && (
-            <div className="absolute bottom-0 left-0 right-0 h-0.75 bg-primary rounded-t-full"></div>
-          )}
-        </button>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-border gap-4 pb-2 sm:pb-0">
+        <div className="flex">
+          <button 
+            onClick={() => setActiveTab('outstanding')}
+            className={`relative px-8 py-3.5 text-headline-card font-bold text-sm transition-all ${
+              activeTab === 'outstanding'
+                ? 'text-primary'
+                : 'text-secondary opacity-70 hover:opacity-100 hover:text-primary'
+            }`}
+          >
+            <span>Outstanding</span>
+            {activeTab === 'outstanding' && (
+              <div className="absolute bottom-0 left-0 right-0 h-0.75 bg-primary rounded-t-full"></div>
+            )}
+          </button>
 
-        <button 
-          onClick={() => setActiveTab('paid')}
-          className={`relative px-8 py-3.5 text-headline-card font-bold text-sm transition-all ${
-            activeTab === 'paid'
-              ? 'text-primary'
-              : 'text-secondary opacity-70 hover:opacity-100 hover:text-primary'
-          }`}
-        >
-          <span>Paid ({paidDebts.length})</span>
-          {activeTab === 'paid' && (
-            <div className="absolute bottom-0 left-0 right-0 h-0.75 bg-primary rounded-t-full"></div>
-          )}
-        </button>
+          <button 
+            onClick={() => setActiveTab('paid')}
+            className={`relative px-8 py-3.5 text-headline-card font-bold text-sm transition-all ${
+              activeTab === 'paid'
+                ? 'text-primary'
+                : 'text-secondary opacity-70 hover:opacity-100 hover:text-primary'
+            }`}
+          >
+            <span>Paid ({paidDebts.length})</span>
+            {activeTab === 'paid' && (
+              <div className="absolute bottom-0 left-0 right-0 h-0.75 bg-primary rounded-t-full"></div>
+            )}
+          </button>
+        </div>
+
+        {activeTab === 'outstanding' && (
+          <div className="flex items-center gap-2 px-6 pb-2 sm:pb-0">
+            <span className="text-secondary text-xs font-semibold">Age Category:</span>
+            <select
+              value={ageFilter}
+              onChange={(e) => setAgeFilter(e.target.value)}
+              className="bg-surface-container-low border border-border rounded-xl text-xs font-bold text-on-surface px-3 py-2 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none cursor-pointer"
+            >
+              <option value="all">All Outstanding</option>
+              <option value="over30">Over 30 Days (Overdue)</option>
+              <option value="15-30">15-30 Days</option>
+              <option value="0-14">0-14 Days</option>
+            </select>
+          </div>
+        )}
       </div>
 
       {/* Grid List cards */}
@@ -162,8 +194,14 @@ export default function DebtsView({
         outstandingDebts.length === 0 ? (
           <div className="bg-surface-container-lowest p-12 text-center rounded-2xl border border-border/80">
             <CheckCircle2 className="w-12 h-12 text-success mx-auto mb-3" />
-            <h4 className="font-bold text-on-surface">No Outstanding Debts!</h4>
-            <p className="text-secondary text-xs mt-1">All customer accounts are completely settled. Great job!</p>
+            <h4 className="font-bold text-on-surface">
+              {ageFilter === 'all' ? 'No Outstanding Debts!' : 'No Debts in this Category!'}
+            </h4>
+            <p className="text-secondary text-xs mt-1">
+              {ageFilter === 'all' 
+                ? 'All customer accounts are completely settled. Great job!' 
+                : 'No outstanding balances match the selected age category.'}
+            </p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -225,11 +263,7 @@ export default function DebtsView({
                     </button>
                     
                     <button 
-                      onClick={() => {
-                        if (confirm(`Mark this credit balance of ${settings.currencySymbol}${debt.amountOwed.toLocaleString()} for ${debt.customerName} as paid?`)) {
-                          onMarkPaid(debt.id);
-                        }
-                      }}
+                      onClick={() => setConfirmPaidDebt(debt)}
                       className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-primary hover:bg-primary-container text-on-primary rounded-xl font-bold text-xs shadow-sm cursor-pointer active:scale-95 transition-all"
                     >
                       <CheckCircle className="w-4 h-4" />
@@ -503,6 +537,53 @@ export default function DebtsView({
                   <Send className="w-4 h-4 text-white" />
                   <span>Send via WhatsApp</span>
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL 3: CONFIRM PAID DEBT */}
+      {confirmPaidDebt && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+          <div className="bg-surface-container-lowest rounded-2xl shadow-xl max-w-md w-full border border-border overflow-hidden animate-scale-up">
+            <div className="px-6 py-4 border-b border-border flex justify-between items-center bg-success/5">
+              <h3 className="font-bold text-base text-success flex items-center gap-1.5">
+                <CheckCircle className="w-5 h-5 text-success" />
+                Confirm Debt Settlement
+              </h3>
+              <button onClick={() => setConfirmPaidDebt(null)} className="p-1 hover:bg-surface-container rounded-lg">
+                <X className="w-5 h-5 text-secondary" />
+              </button>
+            </div>
+            
+            <div className="p-6 space-y-4">
+              <p className="text-sm text-on-surface leading-normal">
+                Are you sure you want to mark the outstanding balance of <strong className="text-success text-base">{settings.currencySymbol}{confirmPaidDebt.amountOwed.toLocaleString()}</strong> for <strong>{confirmPaidDebt.customerName}</strong> as <strong>Paid</strong>?
+              </p>
+              
+              <p className="text-secondary text-xs leading-relaxed bg-surface-container p-3 rounded-xl border border-border/40">
+                This will move this ledger item to the historical paid logs and adjust current total debts outstanding.
+              </p>
+
+              <div className="pt-2 flex gap-3 text-sm">
+                <button 
+                  type="button"
+                  onClick={() => setConfirmPaidDebt(null)}
+                  className="flex-1 py-3 border border-border hover:bg-surface-container text-secondary rounded-xl font-bold transition-colors cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button 
+                  type="button"
+                  onClick={() => {
+                    onMarkPaid(confirmPaidDebt.id);
+                    setConfirmPaidDebt(null);
+                  }}
+                  className="flex-1 py-3 bg-success hover:brightness-105 text-white font-bold rounded-xl transition-all shadow-md cursor-pointer"
+                >
+                  Yes, Mark Paid
+                </button>
               </div>
             </div>
           </div>

@@ -3,23 +3,23 @@ import React, { useEffect, useState, useRef } from 'react';
 const faqItems = [
   {
     question: "📡 How does the offline sync capability work when electricity or network cuts out?",
-    answer: "Trahka operates using safe local database stores built directly within your device's web browser sector (utilizing secure secure-sandbox indexing). Every transaction, stock alteration, and debtor update is processed key-by-key in complete isolation without calling the internet. Once electricity returns and network channels reconnect, Trahka detects the secure socket and propagates backlogged data securely to remote servers in under 3 seconds."
+    answer: "When your light goes or your data cuts out, Trahka keeps working, exactly as normal. Every sale you record, every stock update you make, and every debt you log is saved directly on your device. Nothing is lost. The moment your connection returns, Trahka automatically uploads everything to the cloud in seconds. You never have to do anything manually."
   },
   {
     question: "🛡️ Where is our commercial business data stored, and is it confidential?",
-    answer: "Your inventory values, P&L reports, and staff logs are securely hashed locally on your physical system and wrapped in 256-bit automated encryption keys during cloud transitions (TLS 1.3 protocol standards). Your financial ledger balances remain strictly private to you. We do not inspect, rent, or distribute store records, satisfying absolute transactional secrecy."
+    answer: "Your business data belongs to you and only you. Everything is encrypted on your device and protected during transfer to our secure cloud servers. We do not read your records, share them with third parties, or use them for any purpose outside of running your Trahka account. Your inventory, sales figures, and financial reports are completely private."
   },
   {
     question: "👥 Can store attendants or staff manipulate master medicine prices or override profit records?",
-    answer: "Absolutely not. Trahka includes comprehensive staff role-based restriction layers. Desk-side cashiers or dispensaries can query stock listings and log daily sales, but they are fully restricted from opening backend expense streams, altering master medicine selling tariffs, or wiping historical customer files. Primary audit permissions remain locked under owner override controls."
+    answer: "No. You are in full control of what your staff can and cannot do on Trahka. Cashiers and attendants can record sales and check stock but they cannot change prices, edit your profit records, or access your financial history. Only the account owner has access to those settings. You decide who sees what."
   },
   {
     question: "📱 What happens to our databases if a mobile phone or retail computer gets damaged or stolen?",
-    answer: "Since Trahka holds high-frequency server synchronization buffers, your entire store profile is continuously updated on remote enterprise servers. If a device breaks down or is stolen, you can simply load the Trahka web platform on any other computer, login with your credentials, and restore your exact dashboard state—retaining all debtors, supplier tags, and history tags instantly."
+    answer: "Nothing is lost. Because Trahka syncs your data to secure cloud servers continuously, your entire business profile is safe even if your device is broken or stolen. Simply open Trahka on any other phone or computer, log in with your account details, and everything — your stock, your customers, your sales history, your debtors — will be exactly as you left it."
   },
   {
     question: "💬 Does Trahka protect our custom client listings and debt balance notes safely?",
-    answer: "Yes, fully in accordance with confidential data metrics. Debtor registries, contact details, and custom WhatsApp message templates are stored strictly in dedicated workspace sectors. Custom debt reminders are never dispatched without your conscious consent. Automatic reminders are initiated strictly at your command, avoiding unsolicited customer alerts or external disclosures."
+    answer: "Yes. Your customer list and debt records are stored securely and are never shared or exposed. Debt reminder messages are only sent when you explicitly trigger them — Trahka will never automatically contact your customers without your instruction. You stay in control of every message that goes out."
   }
 ];
 
@@ -178,7 +178,7 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
             : 'bg-trahka-navy/85 backdrop-blur-md'
         }`}
       >
-        <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto w-full">
+        <div className="flex justify-between items-center px-6 md:px-12 xl:px-8 max-w-7xl mx-auto w-full">
           <div className="flex flex-col">
             <a 
               href="#" 
@@ -264,19 +264,19 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
         onMouseMove={handleMouseMove}
         className="relative pt-32 pb-20 md:py-48 bg-trahka-navy hero-3d-bg overflow-hidden min-h-screen flex items-center"
       >
-        <div className="container mx-auto px-margin-mobile md:px-margin-desktop max-w-7xl relative z-10 w-full">
+        <div className="container mx-auto px-6 md:px-12 xl:px-8 max-w-7xl relative z-10 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             
             {/* Left Content */}
             <div className={`text-center lg:text-left space-y-8 reveal ${heroActive ? 'active' : ''}`}>
-              <span className="inline-block bg-primary/20 border border-primary/40 text-primary-fixed px-4 py-1.5 rounded-full text-[13px] font-semibold tracking-widest uppercase">
-                African SME Infrastructure
+              <span className="inline-block bg-primary/20 border border-[#2563EB]/40 text-[#2563EB] dark:text-blue-200 px-4 py-1.5 rounded-full text-xs font-bold tracking-[0.08em] uppercase">
+                AFRICA'S FIRST SME BACK-OFFICE INFRASTRUCTURE
               </span>
-              <h1 className="text-white font-extrabold text-5xl md:text-7xl leading-[1.1] max-w-xl mx-auto lg:mx-0 tracking-tight">
-                Every African Business Deserves to See Clearly.
+              <h1 className="text-white font-extrabold text-5xl lg:text-6xl xl:text-7xl leading-[1.1] max-w-xl mx-auto lg:mx-0 tracking-tight">
+                Africa's Businesses Are Flying Blind. Trahka Changes That.
               </h1>
-              <p className="text-blue-200/80 text-xl leading-relaxed max-w-lg mx-auto lg:mx-0">
-                Trahka is the back-office operating system built for Nigerian and African SMEs. Know your stock. Know your sales. Know your profit.
+              <p className="text-blue-200/80 text-xl leading-relaxed max-w-lg mx-auto lg:mx-0 font-normal">
+                Trahka is the back-office operating system built for Nigerian and African SMEs. We are giving every African business complete visibility over their operations.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 justify-center lg:justify-start">
@@ -312,22 +312,88 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
             {/* Right Mockup with 3D Depth effects */}
             <div className="relative group parallax-container">
               <div 
-                className="relative z-10 parallax-target" 
+                className="relative z-10 parallax-target bg-[#0e131d]/95 border border-white/10 rounded-2xl overflow-hidden shadow-2xl w-full text-left font-sans text-xs" 
                 style={{ 
                   transform: `translate(${parallaxOffset.x * 0.8}px, ${parallaxOffset.y * 0.8}px)`,
                   transition: 'transform 0.1s ease-out'
                 }}
               >
-                <img 
-                  alt="Trahka Dashboard Preview" 
-                  className="rounded-2xl shadow-2xl border border-white/10 w-full" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwRdE7jyHuopCD8HPNk51D8omTRD7gmx7uvvXm_qItiNNRDxeFMqnSWaqn67et23L-mC6ORorDv2vpPiXa89zHKVNt9Pp8hy93yjl93tmQYJDm6QpFryUNGszBHL6-vBYYeM0sLDbK_ECRBvRDicPV3akjEORljCqAI7n9zdgomj_aE4AfldfWhpDcIp0N0zbBuvV5i-jHNE1r_v_XPuizfjxTT7j7iM2DXIT2piPENS6htAC2xsEb3SPidB5HzUp5kREowt7IB1b0"
-                />
+                {/* Window header */}
+                <div className="bg-[#18202d] border-b border-white/5 px-4 py-3 flex items-center justify-between select-none">
+                  <div className="flex items-center gap-1.5 flex-none">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block"></span>
+                  </div>
+                  <div className="bg-[#111722] text-[10px] text-slate-400 px-6 py-1 rounded-md max-w-[180px] w-full text-center border border-white/5 truncate font-mono select-none">
+                    app.trahka.com/dashboard
+                  </div>
+                  <div className="w-8 shrink-0"></div>
+                </div>
+
+                {/* Dashboard mock interior */}
+                <div className="grid grid-cols-12 min-h-[300px]">
+                  {/* Left Sidebar mock */}
+                  <div className="col-span-3 bg-[#111722] border-r border-white/5 p-3 space-y-4 hidden sm:block select-none shrink-0">
+                    <div className="flex items-center gap-2 px-1 mb-2">
+                      <div className="w-6 h-6 rounded-lg bg-[#2563EB] flex items-center justify-center text-white font-extrabold text-[10px]">T</div>
+                      <span className="font-extrabold text-white text-[11px] tracking-tight">Trahka</span>
+                    </div>
+                    <div className="space-y-1">
+                      <div className="bg-[#18202d] text-white px-2.5 py-1.5 rounded-lg text-[10px] font-bold flex items-center gap-2">📊 Dashboard</div>
+                      <div className="text-slate-400 px-2.5 py-1.5 rounded-lg text-[10px] flex items-center gap-2 hover:bg-white/5">📦 Inventory</div>
+                      <div className="text-slate-400 px-2.5 py-1.5 rounded-lg text-[10px] flex items-center gap-2 hover:bg-white/5">🛒 Sales Log</div>
+                      <div className="text-slate-400 px-2.5 py-1.5 rounded-lg text-[10px] flex items-center gap-2 hover:bg-white/5">📒 Debts</div>
+                    </div>
+                  </div>
+
+                  {/* Main content body mock */}
+                  <div className="col-span-12 sm:col-span-9 p-4 space-y-4 bg-[#090d14]/40">
+                    <div className="flex justify-between items-center select-none">
+                      <div>
+                        <h4 className="text-white font-black text-xs md:text-sm">MedicLabs Pharmacy</h4>
+                        <p className="text-[9px] text-slate-400">Welcome back, Owner</p>
+                      </div>
+                      <span className="bg-[#34d399]/10 text-[#34d399] border border-[#34d399]/20 font-bold px-2 py-0.5 rounded-full text-[9px]">● Online</span>
+                    </div>
+
+                    {/* Stats Grid */}
+                    <div className="grid grid-cols-3 gap-2.5">
+                      <div className="bg-[#18202d] p-2 rounded-xl border border-white/5 flex flex-col justify-between">
+                        <span className="text-[9px] text-slate-400 select-none">Today's Sales</span>
+                        <span className="text-white font-black text-xs md:text-sm mt-1">₦47,500</span>
+                      </div>
+                      <div className="bg-[#18202d] p-2 rounded-xl border border-white/5 flex flex-col justify-between">
+                        <span className="text-[9px] text-slate-400 select-none">Active Debts</span>
+                        <span className="text-red-400 font-black text-xs md:text-sm mt-1">₦185,200</span>
+                      </div>
+                      <div className="bg-[#18202d] p-2 rounded-xl border border-white/5 flex flex-col justify-between">
+                        <span className="text-[9px] text-slate-400 select-none">Net Profit</span>
+                        <span className="text-[#34d399] font-black text-xs md:text-sm mt-1">₦312,000</span>
+                      </div>
+                    </div>
+
+                    {/* Low Stock Checklist */}
+                    <div className="bg-[#111722] p-3 rounded-xl border border-white/5 space-y-2">
+                      <span className="text-[10px] font-bold text-white block select-none">⚠️ High Risk Expiry Warning</span>
+                      <div className="divide-y divide-white/5 text-[9px]">
+                        <div className="py-1.5 flex justify-between">
+                          <span className="text-slate-300">Coartem 80/480mg (Sachet)</span>
+                          <span className="text-red-400 font-bold">Expires in 12 days</span>
+                        </div>
+                        <div className="py-1.5 flex justify-between">
+                          <span className="text-slate-300">Amoxil 500mg (Cap)</span>
+                          <span className="text-amber-400 font-bold">Qty low: 4 left</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              {/* Floating interactive Badges */}
+              {/* Floating interactive Badges with brought-to-front z-index fix */}
               <div 
-                className="absolute -top-6 -right-6 glass-badge px-4 py-3 rounded-xl shadow-xl animate-bounce parallax-target hidden sm:block" 
+                className="absolute -top-6 -right-6 glass-badge px-4 py-3 rounded-xl shadow-xl animate-bounce parallax-target hidden sm:block z-20" 
                 style={{ 
                   animationDuration: '3s',
                   transform: `translate(${parallaxOffset.x * 0.4}px, ${parallaxOffset.y * 0.4}px)`,
@@ -338,7 +404,7 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
               </div>
 
               <div 
-                className="absolute top-1/2 -left-12 glass-badge px-4 py-3 rounded-xl shadow-xl animate-pulse parallax-target hidden sm:block"
+                className="absolute top-1/2 -left-12 glass-badge px-4 py-3 rounded-xl shadow-xl animate-pulse parallax-target hidden sm:block z-20"
                 style={{ 
                   transform: `translate(${parallaxOffset.x * -0.2}px, ${parallaxOffset.y * -0.2}px)`,
                   transition: 'transform 0.1s ease-out'
@@ -348,7 +414,7 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
               </div>
 
               <div 
-                className="absolute -bottom-4 right-12 glass-badge px-4 py-3 rounded-xl shadow-xl parallax-target hidden sm:block"
+                className="absolute -bottom-4 right-12 glass-badge px-4 py-3 rounded-xl shadow-xl parallax-target hidden sm:block z-20"
                 style={{ 
                   transform: `translate(${parallaxOffset.x * 0.2}px, ${parallaxOffset.y * 0.2}px)`,
                   transition: 'transform 0.1s ease-out'
@@ -368,7 +434,7 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
         id="stats-section"
         className="bg-white py-16 border-y border-outline-variant"
       >
-        <div className={`container mx-auto px-margin-mobile md:px-margin-desktop max-w-7xl reveal-on-scroll reveal ${activeReveals['stats-section'] ? 'active' : ''}`} data-reveal-id="stats-section">
+        <div className={`container mx-auto px-6 md:px-12 xl:px-8 max-w-7xl reveal-on-scroll reveal ${activeReveals['stats-section'] ? 'active' : ''}`} data-reveal-id="stats-section">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             
             <div className="text-center relative md:after:content-[''] md:after:absolute md:after:right-0 md:after:top-1/4 md:after:h-1/2 md:after:w-[1px] md:after:bg-outline-variant last:after:hidden">
@@ -409,11 +475,11 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
 
       {/* The Problem Section */}
       <section className="bg-surface py-24" id="product">
-        <div className="container mx-auto px-margin-mobile md:px-margin-desktop max-w-7xl">
+        <div className="container mx-auto px-6 md:px-12 xl:px-8 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16">
             
             <div className={`reveal-on-scroll reveal ${activeReveals['problem-desc'] ? 'active' : ''}`} data-reveal-id="problem-desc">
-              <span className="text-primary font-bold tracking-widest text-xs uppercase">The Problem</span>
+              <span className="text-primary font-bold tracking-[0.08em] text-[14px] uppercase">The Problem</span>
               <h2 className="text-4xl font-extrabold text-on-surface mt-4 leading-tight">
                 Africa's businesses are running blind.
               </h2>
@@ -423,6 +489,9 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
                 </p>
                 <p className="text-secondary text-lg leading-relaxed">
                   Not because they are bad at business — but because nobody has built them the right tools. Trahka changes that. From Lagos to Ibadan to Kano, the story is the same: stock managed by memory, sales unrecorded, customer debts tracked in notebooks that get lost.
+                </p>
+                <p className="text-secondary text-lg leading-relaxed">
+                  We grow into their working capital lender. We evolve into their autonomous AI business agent. The back-office infrastructure layer Africa has never had, until now.
                 </p>
               </div>
             </div>
@@ -461,13 +530,13 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
 
       {/* The Solution Section */}
       <section className="bg-white py-24" id="how-it-works">
-        <div className="container mx-auto px-margin-mobile md:px-margin-desktop max-w-7xl">
+        <div className="container mx-auto px-6 md:px-12 xl:px-8 max-w-7xl">
           
           <div className={`text-center max-w-3xl mx-auto mb-16 reveal-on-scroll reveal ${activeReveals['sol-header'] ? 'active' : ''}`} data-reveal-id="sol-header">
-            <span className="text-primary font-bold tracking-widest text-xs uppercase">The Solution</span>
+            <span className="text-primary font-bold tracking-[0.08em] text-[14px] uppercase">The Solution</span>
             <h2 className="text-4xl font-extrabold text-on-surface mt-4">One platform. Complete visibility. Built for Africa.</h2>
             <p className="text-secondary text-lg mt-6 leading-relaxed">
-              Trahka is a mobile-first, offline-capable business operating system built specifically for African small enterprises. We offer absolute visibility.
+              Trahka is a mobile-first, offline-capable business operating system built specifically for African small enterprises.
             </p>
           </div>
 
@@ -505,20 +574,86 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
               <span className="inline-block mt-4 bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">Live in v1.0</span>
             </div>
 
+            {/* Feature 5 */}
+            <div className="bg-white p-7 rounded-2xl border border-outline-variant tilt-card">
+              <div className="w-12 h-12 bg-[#FEE2E2] rounded-2xl flex items-center justify-center text-2xl">💳</div>
+              <h3 className="font-bold text-lg text-on-surface mt-4">Payroll Manager</h3>
+              <p className="text-secondary text-sm mt-3 leading-relaxed">Process staff salaries, deduct PAYE tax, and generate digital payslips — all inside Trahka. No disputes. No paper records.</p>
+              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-[#F59E0B] bg-[#FFFBEB] border border-amber-200">Live in v2.0</span>
+            </div>
+
+            {/* Feature 6 */}
+            <div className="bg-white p-7 rounded-2xl border border-outline-variant tilt-card">
+              <div className="w-12 h-12 bg-[#FFEDD5] rounded-2xl flex items-center justify-center text-2xl">🚚</div>
+              <h3 className="font-bold text-lg text-on-surface mt-4">Supplier Management</h3>
+              <p className="text-secondary text-sm mt-3 leading-relaxed">Track every supplier, manage purchase orders, monitor what you owe and when it is due. Never miss a payment deadline again.</p>
+              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-[#F59E0B] bg-[#FFFBEB] border border-amber-200">Live in v2.0</span>
+            </div>
+
+            {/* Feature 7 */}
+            <div className="bg-white p-7 rounded-2xl border border-outline-variant tilt-card">
+              <div className="w-12 h-12 bg-[#ECFDF5] rounded-2xl flex items-center justify-center text-2xl">💰</div>
+              <h3 className="font-bold text-lg text-on-surface mt-4">Working Capital Loans</h3>
+              <p className="text-secondary text-sm mt-3 leading-relaxed">After 6 months on Trahka, your transaction data unlocks access to working capital loans. Built on your own numbers.</p>
+              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-[#F59E0B] bg-[#FFFBEB] border border-amber-200">Live in v2.0</span>
+            </div>
+
+            {/* Feature 8 */}
+            <div className="bg-white p-7 rounded-2xl border border-outline-variant tilt-card">
+              <div className="w-12 h-12 bg-[#F5F3FF] rounded-2xl flex items-center justify-center text-2xl">📊</div>
+              <h3 className="font-bold text-lg text-on-surface mt-4">Advanced Business Intelligence</h3>
+              <p className="text-secondary text-sm mt-3 leading-relaxed">Weekly and monthly business performance reports generated automatically. Spot trends, catch problems early, and make decisions backed by real data.</p>
+              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-[#F59E0B] bg-[#FFFBEB] border border-amber-200">Live in v2.0</span>
+            </div>
+
+            {/* Feature 9 */}
+            <div className="bg-white p-7 rounded-2xl border border-outline-variant tilt-card">
+              <div className="w-12 h-12 bg-[#EEF2F6] rounded-2xl flex items-center justify-center text-2xl">🤖</div>
+              <h3 className="font-bold text-lg text-on-surface mt-4">Stock Watcher Agent</h3>
+              <p className="text-secondary text-sm mt-3 leading-relaxed">An AI agent that monitors your inventory continuously — and automatically drafts reorder messages to your supplier before you run out. No action required.</p>
+              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-[#2563EB] bg-[#EFF6FF] border border-blue-100">Live in v3.0</span>
+            </div>
+
+            {/* Feature 10 */}
+            <div className="bg-white p-7 rounded-2xl border border-outline-variant tilt-card">
+              <div className="w-12 h-12 bg-[#FFF1F2] rounded-2xl flex items-center justify-center text-2xl">📬</div>
+              <h3 className="font-bold text-lg text-on-surface mt-4">Debt Collector Agent</h3>
+              <p className="text-secondary text-sm mt-3 leading-relaxed">Sends personalised WhatsApp payment reminders to credit customers on a learned schedule. Tracks who pays reliably. Builds customer credit scores automatically.</p>
+              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-[#2563EB] bg-[#EFF6FF] border border-blue-100">Live in v3.0</span>
+            </div>
+
+            {/* Feature 11 */}
+            <div className="bg-white p-7 rounded-2xl border border-outline-variant tilt-card">
+              <div className="w-12 h-12 bg-[#FAF5FF] rounded-2xl flex items-center justify-center text-2xl">🧠</div>
+              <h3 className="font-bold text-lg text-on-surface mt-4">CFO Agent</h3>
+              <p className="text-secondary text-sm mt-3 leading-relaxed">On the first of every month, Trahka's AI generates your complete financial report and delivers it as a voice note summary on WhatsApp. Your first CFO — automated.</p>
+              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-[#2563EB] bg-[#EFF6FF] border border-blue-100">Live in v3.0</span>
+            </div>
+
+            {/* Feature 12 */}
+            <div className="bg-white p-7 rounded-2xl border border-outline-variant tilt-card">
+              <div className="w-12 h-12 bg-[#FEFCE8] rounded-2xl flex items-center justify-center text-2xl">💡</div>
+              <h3 className="font-bold text-lg text-on-surface mt-4">Trahka Business Advisor</h3>
+              <p className="text-secondary text-sm mt-3 leading-relaxed">Ask your business anything. 'Should I hire another attendant?' 'Which product has the best margin?' Trahka answers — using your own data.</p>
+              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-[#2563EB] bg-[#EFF6FF] border border-blue-100">Live in v3.0</span>
+            </div>
+
           </div>
 
           {/* Platform Statement Box */}
           <div className={`bg-trahka-navy rounded-3xl p-10 flex flex-col lg:flex-row gap-12 items-center reveal-on-scroll reveal ${activeReveals['sol-statement'] ? 'active' : ''} tilt-card shadow-2xl border border-white/5`} data-reveal-id="sol-statement">
-            <div className="lg:w-2/3">
+            <div className="lg:w-7/12">
               <h3 className="text-white text-3xl font-extrabold mb-4">Trahka is a platform, not a single vertical.</h3>
               <p className="text-blue-200/70 text-lg leading-relaxed">
-                We launch inside the pharmacy vertical because it is the most inventory-sensitive retail model. But Trahka is built to power every FMCG outlet, cosmetics distributor, and wholesale business across Nigeria.
+                We launch inside the pharmacy vertical because it is the most inventory-sensitive and regulatory-pressured entry point in Nigeria. But Trahka is built to power every FMCG outlet, auto parts dealer, fashion wholesaler, and SME across Africa. The platform scales. The vision is the continent.
               </p>
             </div>
-            <div className="lg:w-1/3 flex flex-wrap gap-3 justify-center">
-              <span className="bg-trahka-amber text-trahka-navy px-4 py-2 rounded-full font-bold text-sm select-none">💊 Pharmacies — Live Now</span>
-              <span className="bg-primary/20 text-primary-fixed border border-primary/40 px-4 py-2 rounded-full font-bold text-sm">🛒 FMCG — Coming 2026</span>
-              <span className="bg-primary/20 text-primary-fixed border border-primary/40 px-4 py-2 rounded-full font-bold text-sm">🔧 Auto Parts — Coming 2027</span>
+            <div className="lg:w-5/12 flex flex-wrap gap-3 justify-center">
+              <span className="bg-[#FFFBEB] text-[#F59E0B] border border-amber-200/60 px-4 py-2 rounded-full font-bold text-sm select-none">💊 Pharmacies — Live Now</span>
+              <span className="bg-[#EFF6FF] text-[#2563EB] border border-blue-200/60 px-4 py-2 rounded-full font-bold text-sm select-none">🛒 FMCG Distributors — Coming 2026</span>
+              <span className="bg-[#EFF6FF] text-[#2563EB] border border-blue-200/60 px-4 py-2 rounded-full font-bold text-sm select-none">👗 Fashion & Wholesale — Coming 2026</span>
+              <span className="bg-[#EFF6FF] text-[#2563EB] border border-blue-200/60 px-4 py-2 rounded-full font-bold text-sm select-none">🔧 Auto Parts — Coming 2027</span>
+              <span className="bg-[#EFF6FF] text-[#2563EB] border border-blue-200/60 px-4 py-2 rounded-full font-bold text-sm select-none">🌍 West Africa — Expansion 2027</span>
             </div>
           </div>
 
@@ -527,9 +662,10 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
 
       {/* Why Trahka Section */}
       <section className="bg-surface py-24" id="why-trahka">
-        <div className={`container mx-auto px-margin-mobile md:px-margin-desktop max-w-7xl text-center reveal-on-scroll reveal ${activeReveals['why-header'] ? 'active' : ''}`} data-reveal-id="why-header">
+        <div className={`container mx-auto px-6 md:px-12 xl:px-8 max-w-7xl text-center reveal-on-scroll reveal ${activeReveals['why-header'] ? 'active' : ''}`} data-reveal-id="why-header">
           
-          <span className="text-primary font-bold tracking-widest text-xs uppercase">Why Trahka</span>
+          <span className="text-primary font-bold tracking-[0.08em] text-[14px] uppercase mb-1 block">Why Trahka</span>
+          <span className="text-secondary text-sm font-semibold tracking-wider uppercase mb-4 block">Built for Nigerian/African SMEs</span>
           <h2 className="text-4xl font-extrabold text-on-surface mt-4 mb-16">Built for this market. Not adapted for it.</h2>
 
           <div className={`grid lg:grid-cols-3 gap-8 mb-24 reveal-on-scroll reveal ${activeReveals['why-cards'] ? 'active' : ''}`} data-reveal-id="why-cards">
@@ -537,22 +673,46 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
             <div className="bg-white p-8 rounded-2xl shadow-xs text-left tilt-card">
               <div className="w-12 h-12 bg-trahka-amber rounded-2xl flex items-center justify-center text-2xl mb-6">📡</div>
               <h3 className="font-bold text-xl mb-4">Offline-First</h3>
-              <p className="text-secondary leading-relaxed mb-6">Lagos electricity can fluctuate and data cuts out. Trahka runs completely locally inside the browser memory, syncing gracefully.</p>
+              <p className="text-secondary leading-relaxed mb-6">Your business operations don't have to pause when NEPA takes the light or when you run out of data. Trahka runs entirely without internet — every sale recorded, every stock count logged, every report available. The moment you reconnect, everything syncs.</p>
               <div className="text-trahka-amber font-extrabold text-xs uppercase tracking-wider">100% offline sync capability</div>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-xs text-left tilt-card">
               <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center text-2xl mb-6 text-white">🤝</div>
               <h3 className="font-bold text-xl mb-4">Agent-Distributed</h3>
-              <p className="text-secondary leading-relaxed mb-6">Local representatives visit your pharmacy, configure records, and ensure your team understands the ledger in under 45 minutes.</p>
+              <p className="text-secondary leading-relaxed mb-6">Our agents come to you. They set up your account, walk your team through the system, and don't leave until everything is running. We know that great software means nothing if nobody shows you how to use it.</p>
               <div className="text-primary font-extrabold text-xs uppercase tracking-wider">On-site onboarding assistance</div>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-xs text-left tilt-card">
-              <div className="w-12 h-12 bg-success rounded-2xl flex items-center justify-center text-2xl mb-6 text-white">🇳🇬</div>
-              <h3 className="font-bold text-xl mb-4">Naira-Native</h3>
-              <p className="text-secondary leading-relaxed mb-6">Styled entirely around Nigerian business reality—precise Naira denominations, local tax logs, and NAFDAC safety alerts.</p>
-              <div className="text-success font-extrabold text-xs uppercase tracking-wider">Built for Nigerian Pharmacies</div>
+              <div className="w-12 h-12 bg-success rounded-xl flex items-center justify-center text-xl font-bold mb-6 text-white bg-slate-100 dark:bg-zinc-800 text-green-700">₦</div>
+              <h3 className="font-bold text-xl mb-4">Naira-Native & Localization</h3>
+              <p className="text-secondary leading-relaxed mb-6">No currency conversions. No workarounds. Trahka is built entirely around how Nigerian businesses actually operate; naira denominations, NAFDAC compliance, CBN payment rails, and local tax requirements.</p>
+              <div className="text-success font-extrabold text-[#34d399] text-xs uppercase tracking-wider">Built for Nigerian/African SMEs</div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-white p-8 rounded-2xl shadow-xs text-left tilt-card">
+              <div className="w-12 h-12 bg-purple-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center text-2xl mb-6 text-purple-600">📊</div>
+              <h3 className="font-bold text-xl mb-4">Complete Business Visibility</h3>
+              <p className="text-secondary leading-relaxed mb-6">For the first time, you can see exactly how your business is performing — what's selling, who owes you, and what your actual profit is. Not estimates. Not guesses. Real numbers, in real time, on any device.</p>
+              <div className="text-purple-600 font-extrabold text-xs uppercase tracking-wider">Full P&L visibility</div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="bg-white p-8 rounded-2xl shadow-xs text-left tilt-card">
+              <div className="w-12 h-12 bg-amber-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center text-2xl mb-6 text-amber-600">🏦</div>
+              <h3 className="font-bold text-xl mb-4">Your Data Becomes Your Credit</h3>
+              <p className="text-secondary leading-relaxed mb-6">Every transaction you record on Trahka is building your financial identity. Over time, the data becomes the evidence that unlocks working capital loans for business owners who have never qualified for a bank loan before.</p>
+              <div className="text-amber-600 font-extrabold text-xs uppercase tracking-wider">Finance-ready from day one</div>
+            </div>
+
+            {/* Card 6 */}
+            <div className="bg-white p-8 rounded-2xl shadow-xs text-left tilt-card">
+              <div className="w-12 h-12 bg-teal-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center text-2xl mb-6 text-teal-600">🤖</div>
+              <h3 className="font-bold text-xl mb-4">AI That Works for You</h3>
+              <p className="text-secondary leading-relaxed mb-6">Trahka doesn't just record what happens, it tells you what to do next. Reorder alerts before you run out of stock. Debt reminders before customers go cold. Demand forecasts before the next market cycle. An AI back-office that never sleeps.</p>
+              <div className="text-teal-600 font-extrabold text-xs uppercase tracking-wider">Intelligent. Predictive. Yours.</div>
             </div>
 
           </div>
@@ -563,7 +723,7 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
               <thead>
                 <tr className="bg-surface-container-low border-b border-border">
                   <th className="p-6 font-bold text-on-surface">Capability Feature</th>
-                  <th className="p-6 font-extrabold text-primary bg-primary/5 border-x border-primary/20">Trahka OS</th>
+                  <th className="p-6 font-extrabold text-primary bg-primary/5 border-x border-primary/20">Trahka</th>
                   <th className="p-6 font-bold text-on-surface-variant">Western Softwares (Sage / QuickBooks)</th>
                   <th className="p-6 font-bold text-on-surface-variant">Traditional Paper / Notebooks</th>
                 </tr>
@@ -584,7 +744,7 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
                 <tr>
                   <td className="p-6 font-semibold">Price Index</td>
                   <td className="p-6 bg-primary/5 border-x border-primary/20 text-sm font-bold text-primary">✅ From ₦3,000 / month</td>
-                  <td className="p-6 text-secondary text-sm">❌ Expensive USD subscriptons</td>
+                  <td className="p-6 text-secondary text-sm">❌ Expensive USD subscriptions</td>
                   <td className="p-6 text-secondary text-sm">✅ Paper costs, but prone to losses</td>
                 </tr>
                 <tr>
@@ -602,7 +762,7 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
 
       {/* Interactive FAQ Section */}
       <section className="bg-white py-24 border-t border-border" id="faq">
-        <div className="container mx-auto px-margin-mobile md:px-margin-desktop max-w-4xl">
+        <div className="container mx-auto px-6 md:px-12 max-w-4xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-primary font-bold tracking-widest text-xs uppercase">DATA SECURE &amp; SYNCHRONIZED</span>
             <h2 className="text-4xl font-extrabold text-on-surface mt-4 mb-4 tracking-tight">Frequently Asked Questions</h2>
@@ -648,17 +808,17 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
 
       {/* The Vision Section */}
       <section className="bg-trahka-navy py-24 text-center overflow-hidden relative" id="vision">
-        <div className={`container mx-auto px-margin-mobile md:px-margin-desktop max-w-4xl relative z-10 reveal-on-scroll reveal ${activeReveals['vision-header'] ? 'active' : ''}`} data-reveal-id="vision-header">
+        <div className={`container mx-auto px-6 md:px-12 max-w-4xl relative z-10 reveal-on-scroll reveal ${activeReveals['vision-header'] ? 'active' : ''}`} data-reveal-id="vision-header">
           
-          <span className="text-trahka-amber font-bold tracking-widest text-xs uppercase">Our Vision</span>
+          <span className="text-trahka-amber font-bold tracking-[0.08em] text-[14px] uppercase">Our Vision</span>
           <h2 className="text-white text-5xl md:text-6xl font-extrabold mt-6 leading-tight tracking-tight">
             From every pharmacy in Ibadan to every SME in Africa.
           </h2>
 
           <div className="mt-12 space-y-8 text-blue-200/80 text-lg leading-relaxed max-w-3xl mx-auto">
             <p>Trahka starts with a deliberate entry point: Nigeria's retail pharmacies. This is where inventory expiry risks are highest and cash conversion is vital.</p>
-            <p>But Trahka is built as transactional back-office plumbing. Once cemented in health, we extend to hardware shops, wholesale auto part warehouses, and local distribution hubs.</p>
-            <p>By capturing transaction ledger sequences offline, Trahka transforms data points into credit profiles, facilitating underwriting for working capital growth.</p>
+            <p>Beyond pharmacies, we are expanding our service offerings to include hardware stores, wholesale distributors, auto parts dealers, and every other SME category across Nigeria and Africa.</p>
+            <p>Every transaction a business owner records on Trahka quietly builds something powerful — a financial track record. Over time, that record becomes the evidence that unlocks working capital loans for business owners who have never been able to access formal credit from traditional banks before. Your data works for you.</p>
           </div>
 
           {/* Evolution Cards */}
@@ -690,9 +850,9 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
           {/* Agentic AI Preview */}
           <div className={`mt-16 bg-primary/10 border border-primary/30 p-8 rounded-2xl text-left reveal-on-scroll reveal ${activeReveals['vision-agentic'] ? 'active' : ''} tilt-card shadow-2xl`} data-reveal-id="vision-agentic">
             <span className="text-blue-400 text-xs font-black uppercase tracking-widest">🤖 Trahka AI Agent — Coming 2027</span>
-            <h4 className="text-white text-2xl font-black mt-4">The first autonomous agent framework for retail distribution.</h4>
+            <h4 className="text-white text-2xl font-black mt-4">The first autonomous AI agent built for African SMEs.</h4>
             <p className="text-blue-200/70 text-base mt-4 leading-relaxed">
-              Imagine a business assistant that handles late collections reminders on autopilot, replenishes critical medical inventory ahead of seasonal strain, and delivers weekly financial recaps directly as simple audio reports. That is our roadmap.
+              Trahka AI is not a chatbot. It is a business operations assistant that handles late collections reminders on autopilot, replenishes critical inventory ahead of seasonal strain, and delivers weekly financial recaps directly as simple audio reports. Trahka AI monitors your stock levels and tells you what to reorder before you run out. It watches your cash flow and flags when something looks wrong and generates a clear, plain-language summary of your business performance every week, so you always know where you stand. This is not a feature. This is a new kind of business partner — one that every African SME owner deserves but has never had access to. Until now.
             </p>
           </div>
 
@@ -701,12 +861,12 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
 
       {/* Final CTA Section */}
       <section className="bg-trahka-navy py-32 border-t border-white/5">
-        <div className={`container mx-auto px-margin-mobile md:px-margin-desktop text-center reveal-on-scroll reveal ${activeReveals['cta-section'] ? 'active' : ''}`} data-reveal-id="cta-section">
+        <div className={`container mx-auto px-6 md:px-12 xl:px-8 text-center reveal-on-scroll reveal ${activeReveals['cta-section'] ? 'active' : ''}`} data-reveal-id="cta-section">
           <h2 className="text-white text-5xl md:text-7xl font-extrabold max-w-4xl mx-auto leading-tight tracking-tight">
             Your business deserves better than a paper notebook.
           </h2>
           <p className="text-blue-200/80 text-xl mt-8 max-w-xl mx-auto">
-            Join pharmacies and distributors across Ibadan and Lagos using Trahka to see numbers clearly.
+            Join other SMEs using Trahka to see their numbers clearly.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-12 justify-center">
@@ -732,12 +892,12 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
 
       {/* Footer */}
       <footer className="bg-trahka-navy border-t border-white/5 py-20">
-        <div className="container mx-auto px-margin-mobile md:px-margin-desktop max-w-7xl flex flex-col md:flex-row justify-between gap-12 w-full">
+        <div className="container mx-auto px-6 md:px-12 xl:px-8 max-w-7xl flex flex-col md:flex-row justify-between gap-12 w-full">
           
           <div className="max-w-xs text-left">
             <span className="text-white font-extrabold text-2xl tracking-tight">Trahka</span>
             <p className="text-blue-200/50 text-sm mt-4 leading-relaxed">
-              The Back-Office Operating System for African SMEs. Infrastructure driving the engine room of local commerce.
+              The Back-Office Operating System for African SMEs.
             </p>
           </div>
 
@@ -773,9 +933,9 @@ export default function LandingView({ onEnterApp, onSignupClick }: LandingViewPr
 
         </div>
 
-        <div className="container mx-auto px-margin-mobile md:px-margin-desktop max-w-7xl mt-20 pt-8 border-t border-white/5 text-center">
+        <div className="container mx-auto px-6 md:px-12 xl:px-8 max-w-7xl mt-20 pt-8 border-t border-white/5 text-center">
           <p className="text-slate-600 text-xs">
-            © 2026 Trahka OS. All rights reserved. SME infrastructure for African Retail.
+            © 2026 Trahka. All rights reserved. SME infrastructure for African SMEs.
           </p>
         </div>
       </footer>

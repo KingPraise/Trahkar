@@ -63,22 +63,22 @@ export default function App() {
 
   const [settings, setSettings] = React.useState<AppSettings>(() => {
     const defaultSettings: AppSettings = {
-      pharmacyName: 'Trahka Pharmacy & Stores',
-      adminSlogan: 'Admin Console',
+      pharmacyName: 'MedicLabs Pharmacy',
+      adminSlogan: 'Owner',
       adminUsername: 'kingpraise15',
       lowStockThreshold: 20,
       currencySymbol: '₦',
       defaultPaymentMethod: 'cash',
       whatsappMessageTemplate: 'Hello *{customerName}*, this is a friendly reminder from *{pharmacyName}* regarding your outstanding balance of *{currency}{amount}* recorded on *{dateRecorded}* ({days} Days ago). Kindly make arrangements for cash or bank transfer payment. Thank you!',
       themeMode: 'light',
-      emailAddress: 'a.ogunwale@citycentralpharma.ng',
+      emailAddress: 'chidi.o@medicarepharmacy.com.ng',
       physicalLocation: 'Ikeja, Lagos State',
       phoneNumber: '+234 801 234 5678',
       logoUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBBAJMtdX0qlno-yQyodnge1VdHUpVoCd24T6e4xitamkNrwK1Z1Qwrv5iNWbjavGJnkWPuvwKt4hJTmRHXVXWVFZRpqQ49ddTi2h58LLha-wPAdrdlPmQtLTzFVfgV9CtMAQHFos-1sRDGjgC14EoTj6eWaL2RfpWjNUcIfeSUuKLwRwrDfXLxMk3rkqdI28R5cZnFi08reaYvrKVCZDNamWmVJnpRxjEEYHtR3Tb8uQ5g15UqqaNi1KdGkpAwJ6EgJjVZ4JshqqFP',
       preferredUnitOfMeasure: 'Sachets / Pieces',
       whatsappSharing: true,
       businessRegNo: '',
-      pharmacistName: 'Dr. Adebayo Ogunwale',
+      pharmacistName: 'Chidi Okafor',
       pharmacyLicense: 'PCN/2023/4852',
       specialty: 'Community Pharmacy',
       language: 'English (Nigeria)',
@@ -91,6 +91,15 @@ export default function App() {
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
+        if (parsed.pharmacistName === 'Chidi Okafor (Google Dev)') {
+          parsed.pharmacistName = 'Chidi Okafor';
+        }
+        if (parsed.emailAddress === 'chidi.o@okaforpharmacy.com.ng') {
+          parsed.emailAddress = 'chidi.o@medicarepharmacy.com.ng';
+        }
+        if (parsed.pharmacyName === 'Okafor Pharmacy') {
+          parsed.pharmacyName = 'MedicLabs Pharmacy';
+        }
         return { ...defaultSettings, ...parsed };
       } catch (e) {
         // fallback
@@ -449,8 +458,8 @@ export default function App() {
     setActivities(INITIAL_ACTIVITIES);
     setExpenses(INITIAL_EXPENSES);
     setSettings({
-      pharmacyName: 'Trahka Pharmacy',
-      adminSlogan: 'Admin Console',
+      pharmacyName: 'MedicLabs Pharmacy',
+      adminSlogan: 'Owner',
       adminUsername: 'kingpraise15',
       lowStockThreshold: 20,
       currencySymbol: '₦',

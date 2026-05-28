@@ -253,7 +253,7 @@ export default function SettingsView({
             />
           </div>
           <div>
-            <h4 className="font-black text-sm text-on-surface">Dr. Adebayo Ogunwale (Pharmacist Credentials)</h4>
+            <h4 className="font-black text-sm text-on-surface">{settings.pharmacistName || 'Dr. Adebayo Ogunwale'} (Owner Credentials)</h4>
             <p className="text-xs text-secondary dark:text-zinc-400">Chief Pharmacist &amp; Owner Profile, verified PCN licenses, SMS 2FA, and language preferences.</p>
           </div>
         </div>
