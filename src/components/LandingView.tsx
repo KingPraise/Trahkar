@@ -208,7 +208,7 @@ export default function LandingView({
               <img 
                 src="/logo.png" 
                 alt="Trahka Logo" 
-                className="h-8 w-auto object-contain"
+                className="h-14 w-auto object-contain"
               />
             </a>
             <span className="text-[10px] text-muted md:hidden mt-1">
@@ -1343,7 +1343,7 @@ export default function LandingView({
             <img 
               src="/logo.png" 
               alt="Trahka Logo" 
-              className="h-10 w-auto object-contain mb-4"
+              className="h-20 w-auto object-contain mb-4"
             />
             <p className="text-blue-200/50 text-sm leading-relaxed">
               The Back-Office Operating System for African SMEs.
