@@ -199,17 +199,19 @@ export default function LandingView({
         }`}
       >
         <div className="flex justify-between items-center px-6 md:px-12 xl:px-8 max-w-7xl mx-auto w-full">
-          <div className="flex flex-col">
+          <div className="flex flex-col items-start">
             <a
               href="#"
               onClick={(e) => handleAnchorClick(e, "html")}
-              className={`font-headline-page text-headline-page font-extrabold tracking-tight transition-colors duration-200 ${
-                navScrolled ? "text-trahka-navy" : "text-white"
-              }`}
+              className="transition-opacity duration-200 hover:opacity-80"
             >
-              Trahka
+              <img 
+                src="/logo.png" 
+                alt="Trahka Logo" 
+                className="h-8 w-auto object-contain"
+              />
             </a>
-            <span className="text-[10px] text-muted md:hidden">
+            <span className="text-[10px] text-muted md:hidden mt-1">
               SME Operating System for Africa
             </span>
           </div>
@@ -363,14 +365,14 @@ export default function LandingView({
                     <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block"></span>
                     <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block"></span>
                   </div>
-                  <div className="bg-[#111722] text-[10px] text-slate-400 px-6 py-1 rounded-md max-w-[180px] w-full text-center border border-white/5 truncate font-mono select-none">
+                  <div className="bg-[#111722] text-[10px] text-slate-400 px-6 py-1 rounded-md max-w-45 w-full text-center border border-white/5 truncate font-mono select-none">
                     app.trahka.com/dashboard
                   </div>
                   <div className="w-8 shrink-0"></div>
                 </div>
 
                 {/* Dashboard mock interior */}
-                <div className="grid grid-cols-12 min-h-[300px]">
+                <div className="grid grid-cols-12 min-h-75">
                   {/* Left Sidebar mock */}
                   <div className="col-span-3 bg-[#111722] border-r border-white/5 p-3 space-y-4 hidden sm:block select-none shrink-0">
                     <div className="flex items-center gap-2 px-1 mb-2">
@@ -522,7 +524,7 @@ export default function LandingView({
           data-reveal-id="stats-section"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center relative md:after:content-[''] md:after:absolute md:after:right-0 md:after:top-1/4 md:after:h-1/2 md:after:w-[1px] md:after:bg-outline-variant last:after:hidden">
+            <div className="text-center relative md:after:content-[''] md:after:absolute md:after:right-0 md:after:top-1/4 md:after:h-1/2 md:after:w-px md:after:bg-outline-variant last:after:hidden">
               <div className="text-4xl md:text-5xl font-black text-primary">
                 {smeCount || 84}M+
               </div>
@@ -534,7 +536,7 @@ export default function LandingView({
               </p>
             </div>
 
-            <div className="text-center relative md:after:content-[''] md:after:absolute md:after:right-0 md:after:top-1/4 md:after:h-1/2 md:after:w-[1px] md:after:bg-outline-variant last:after:hidden">
+            <div className="text-center relative md:after:content-[''] md:after:absolute md:after:right-0 md:after:top-1/4 md:after:h-1/2 md:after:w-px md:after:bg-outline-variant last:after:hidden">
               <div className="text-4xl md:text-5xl font-black text-primary">
                 {pharmacyCount || 100}k+
               </div>
@@ -546,7 +548,7 @@ export default function LandingView({
               </p>
             </div>
 
-            <div className="text-center relative md:after:content-[''] md:after:absolute md:after:right-0 md:after:top-1/4 md:after:h-1/2 md:after:w-[1px] md:after:bg-outline-variant last:after:hidden">
+            <div className="text-center relative md:after:content-[''] md:after:absolute md:after:right-0 md:after:top-1/4 md:after:h-1/2 md:after:w-px md:after:bg-outline-variant last:after:hidden">
               <div className="text-4xl md:text-5xl font-black text-primary">
                 &lt;{softwareCount || 3}%
               </div>
@@ -761,7 +763,7 @@ export default function LandingView({
                 Process staff salaries, deduct PAYE tax, and generate digital
                 payslips — all inside Trahka. No disputes. No paper records.
               </p>
-              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-[#F59E0B] bg-[#FFFBEB] border border-amber-200">
+              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-trahka-amber bg-[#FFFBEB] border border-amber-200">
                 Live in v2.0
               </span>
             </div>
@@ -778,7 +780,7 @@ export default function LandingView({
                 Track every supplier, manage purchase orders, monitor what you
                 owe and when it is due. Never miss a payment deadline again.
               </p>
-              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-[#F59E0B] bg-[#FFFBEB] border border-amber-200">
+              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-trahka-amber bg-[#FFFBEB] border border-amber-200">
                 Live in v2.0
               </span>
             </div>
@@ -795,7 +797,7 @@ export default function LandingView({
                 After 6 months on Trahka, your transaction data unlocks access
                 to working capital loans. Built on your own numbers.
               </p>
-              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-[#F59E0B] bg-[#FFFBEB] border border-amber-200">
+              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-trahka-amber bg-[#FFFBEB] border border-amber-200">
                 Live in v2.0
               </span>
             </div>
@@ -813,7 +815,7 @@ export default function LandingView({
                 automatically. Spot trends, catch problems early, and make
                 decisions backed by real data.
               </p>
-              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-[#F59E0B] bg-[#FFFBEB] border border-amber-200">
+              <span className="inline-block mt-4 text-xs font-bold px-3 py-1 rounded-full text-trahka-amber bg-[#FFFBEB] border border-amber-200">
                 Live in v2.0
               </span>
             </div>
@@ -909,7 +911,7 @@ export default function LandingView({
               </p>
             </div>
             <div className="lg:w-5/12 flex flex-wrap gap-3 justify-center">
-              <span className="bg-[#FFFBEB] text-[#F59E0B] border border-amber-200/60 px-4 py-2 rounded-full font-bold text-sm select-none">
+              <span className="bg-[#FFFBEB] text-trahka-amber border border-amber-200/60 px-4 py-2 rounded-full font-bold text-sm select-none">
                 💊 Pharmacies — Live Now
               </span>
               <span className="bg-[#EFF6FF] text-[#2563EB] border border-blue-200/60 px-4 py-2 rounded-full font-bold text-sm select-none">
@@ -982,7 +984,7 @@ export default function LandingView({
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-xs text-left tilt-card">
-              <div className="w-12 h-12 bg-success rounded-xl flex items-center justify-center text-xl font-bold mb-6 text-white bg-slate-100 dark:bg-zinc-800 text-green-700">
+              <div className="w-12 h-12 bg-success rounded-xl flex items-center justify-center text-xl font-bold mb-6 text-white dark:bg-zinc-800">
                 ₦
               </div>
               <h3 className="font-bold text-xl mb-4">
@@ -994,7 +996,7 @@ export default function LandingView({
                 denominations, NAFDAC compliance, CBN payment rails, and local
                 tax requirements.
               </p>
-              <div className="text-success font-extrabold text-[#34d399] text-xs uppercase tracking-wider">
+              <div className="text-success font-extrabold text-xs uppercase tracking-wider">
                 Built for Nigerian/African SMEs
               </div>
             </div>
@@ -1060,7 +1062,7 @@ export default function LandingView({
             className={`overflow-x-auto rounded-2xl shadow-md bg-white border border-border reveal-on-scroll reveal ${activeReveals["why-table"] ? "active" : ""} tilt-card shadow-lg`}
             data-reveal-id="why-table"
           >
-            <table className="w-full text-left min-w-[32rem]">
+            <table className="w-full text-left min-w-lg">
               <thead>
                 <tr className="bg-surface-container-low border-b border-border">
                   <th className="p-6 font-bold text-on-surface">
@@ -1338,17 +1340,19 @@ export default function LandingView({
       <footer className="bg-trahka-navy border-t border-white/5 py-20">
         <div className="container mx-auto px-6 md:px-12 xl:px-8 max-w-7xl flex flex-col md:flex-row justify-between gap-12 w-full">
           <div className="max-w-xs text-left">
-            <span className="text-white font-extrabold text-2xl tracking-tight">
-              Trahka
-            </span>
-            <p className="text-blue-200/50 text-sm mt-4 leading-relaxed">
+            <img 
+              src="/logo.png" 
+              alt="Trahka Logo" 
+              className="h-10 w-auto object-contain mb-4"
+            />
+            <p className="text-blue-200/50 text-sm leading-relaxed">
               The Back-Office Operating System for African SMEs.
             </p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-12 text-left">
             <div>
-              <h5 className="text-white font-bold text-xs uppercase tracking-widest mb-6 text-blue-200/80">
+              <h5 className="font-bold text-xs uppercase tracking-widest mb-6 text-blue-200/80">
                 Product
               </h5>
               <ul className="space-y-4 text-blue-200/60 text-sm font-medium">
@@ -1392,7 +1396,7 @@ export default function LandingView({
             </div>
 
             <div>
-              <h5 className="text-white font-bold text-xs uppercase tracking-widest mb-6 text-blue-200/80">
+              <h5 className="font-bold text-xs uppercase tracking-widest mb-6 text-blue-200/80">
                 Company
               </h5>
               <ul className="space-y-4 text-blue-200/60 text-sm font-medium">
@@ -1418,7 +1422,7 @@ export default function LandingView({
             </div>
 
             <div>
-              <h5 className="text-white font-bold text-xs uppercase tracking-widest mb-6 text-blue-200/80">
+              <h5 className="font-bold text-xs uppercase tracking-widest mb-6 text-blue-200/80">
                 Get Support
               </h5>
               <ul className="space-y-4 text-blue-200/60 text-sm font-medium">
