@@ -211,9 +211,7 @@ export default function LandingView({
                 className={navScrolled ? "h-20 w-auto object-contain" : "h-40 w-auto object-contain"}
               />
             </a>
-            <span className="text-[10px] text-muted md:hidden mt-1">
-              SME Operating System for Africa
-            </span>
+          
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
