@@ -1336,19 +1336,19 @@ export default function LandingView({
 
       {/* Footer */}
       <footer className="bg-trahka-navy border-t border-white/5 py-20">
-        <div className="container mx-auto px-6 md:px-12 xl:px-8 max-w-7xl flex flex-col md:flex-row justify-between gap-8 w-full">
-          <div className="max-w-xs text-left">
+        <div className="container mx-auto px-6 md:px-12 xl:px-8 max-w-7xl flex flex-col md:flex-row justify-between gap-20 w-full items-start">
+          <div className="flex-shrink-0 text-left">
             <img 
               src="/logo1.png" 
               alt="Trahka Logo" 
-              className="h-40 w-auto object-contain mb-4" 
+              className="h-80 w-auto object-contain" 
             />
-            <p className="text-blue-200/50 text-sm leading-relaxed">
+            <p className="text-blue-200/50 text-sm leading-relaxed mt-6">
               The Back-Office Operating System for African SMEs.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-12 text-left">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-12 text-left flex-grow">
             <div>
               <h5 className="font-bold text-xs uppercase tracking-widest mb-6 text-blue-200/80">
                 Product
