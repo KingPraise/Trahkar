@@ -192,7 +192,7 @@ export default function LandingView({
     <div className="bg-surface font-inter text-on-surface overflow-x-hidden min-h-screen">
       {/* Top Navigation Header */}
       <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 h-20 flex items-center ${
+        className={`fixed top-0 w-full z-50 transition-all duration-300 h-25 flex items-center ${
           navScrolled
             ? "bg-white shadow-md border-b border-border"
             : "bg-trahka-navy/85 backdrop-blur-md"
@@ -208,7 +208,7 @@ export default function LandingView({
               <img 
                 src={navScrolled ? "/logo.png" : "/logo1.png"} 
                 alt="Trahka Logo" 
-                className="h-20 w-auto object-contain"
+                className="h-25 w-auto object-contain"
               />
             </a>
             <span className="text-[10px] text-muted md:hidden mt-1">
@@ -1343,7 +1343,7 @@ export default function LandingView({
             <img 
               src="/logo1.png" 
               alt="Trahka Logo" 
-              className="h-20 w-auto object-contain mb-4"
+              className="h-25 w-auto object-contain mb-4"
             />
             <p className="text-blue-200/50 text-sm leading-relaxed">
               The Back-Office Operating System for African SMEs.
